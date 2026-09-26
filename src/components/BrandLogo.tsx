@@ -8,6 +8,8 @@ interface BrandLogoProps {
   priority?: boolean;
 }
 
+const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
 /**
  * Official Athar Logo Component based on Brand Guidelines V1.0
  */
@@ -27,8 +29,8 @@ export function BrandLogo({
 
   const src =
     variant === "dark"
-      ? "/brand/logo-dark.png"
-      : "/brand/logo-light.png";
+      ? `${BASE_PATH}/brand/logo-dark.png`
+      : `${BASE_PATH}/brand/logo-light.png`;
 
   return (
     <div
@@ -66,7 +68,7 @@ export function BrandStandaloneIcon({
   if (variant === "app") {
     return (
       <Image
-        src="/brand/app-icon-512.png"
+        src={`${BASE_PATH}/brand/app-icon-512.png`}
         alt="أيقونة شعار شركة أثر"
         width={size}
         height={size}
@@ -78,8 +80,8 @@ export function BrandStandaloneIcon({
 
   const src =
     variant === "dark"
-      ? "/brand/icon-standalone-dark.png"
-      : "/brand/icon-standalone-light.png";
+      ? `${BASE_PATH}/brand/icon-standalone-dark.png`
+      : `${BASE_PATH}/brand/icon-standalone-light.png`;
 
   return (
     <Image

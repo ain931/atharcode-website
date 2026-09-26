@@ -124,7 +124,11 @@ const INSTANT_INTERACTIVITY_SCRIPT = `
     } catch (err) {}
   }
 
-  if (window.location.pathname && window.location.pathname.indexOf("/en") === 0) {
+  if (
+    window.location.pathname &&
+    (window.location.pathname.indexOf("/en") === 0 ||
+      window.location.pathname.indexOf("/atharcode-website/en") === 0)
+  ) {
     setTimeout(function() { applyLanguage("en"); }, 0);
   }
 

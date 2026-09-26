@@ -89,6 +89,12 @@ function syncAllUploadedLogos() {
   }
 }
 
+export const dynamic = "force-static";
+
+export function generateStaticParams() {
+  return Object.keys(LOGO_FILES).map((slug) => ({ slug }));
+}
+
 export async function GET(
   _request: Request,
   context: { params: Promise<{ slug: string }> }
