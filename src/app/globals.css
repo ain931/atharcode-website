@@ -1,0 +1,297 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ebony: #414833;
+  --color-ebony-dark: #23271c;
+  --color-ebony-light: #535b42;
+  --color-reseda: #737A5D;
+  --color-reseda-light: #8b9374;
+  --color-sage: #A4AC86;
+  --color-sage-light: #c2c9aa;
+  --color-dun: #CBBFA3;
+  --color-dun-light: #dfd7c2;
+  --color-bone: #EBE3D2;
+  --color-bone-light: #F7F4EC;
+  --color-bone-subtle: #FDFCF9;
+
+  --font-serif: var(--font-playfair), Georgia, serif;
+  --font-sans: var(--font-ibm-arabic), var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-inter: var(--font-inter), system-ui, sans-serif;
+  --font-arabic: var(--font-ibm-arabic), system-ui, sans-serif;
+}
+
+:root {
+  --background: #FDFCF9;
+  --foreground: #414833;
+  --brand-ebony: #414833;
+  --brand-reseda: #737A5D;
+  --brand-sage: #A4AC86;
+  --brand-dun: #CBBFA3;
+  --brand-bone: #EBE3D2;
+  --brand-bone-light: #F7F4EC;
+}
+
+html {
+  color-scheme: light;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+/* Custom subtle patterns inspired by Brand Guidelines */
+.bg-grid-subtle {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(65, 72, 51, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(65, 72, 51, 0.04) 1px, transparent 1px);
+}
+
+.bg-dot-subtle {
+  background-size: 24px 24px;
+  background-image: radial-gradient(rgba(115, 122, 93, 0.12) 1.5px, transparent 1.5px);
+}
+
+/* Focus styles for accessibility */
+*:focus-visible {
+  outline: 2px solid #737A5D;
+  outline-offset: 3px;
+}
+
+/* Continuous Non-Stop SVG Line Drawing Animations (Zero JS Main-Thread Overhead) */
+@keyframes svgLineFlow1 {
+  0% {
+    stroke-dashoffset: 100;
+    opacity: 0.28;
+  }
+  50% {
+    stroke-dashoffset: 0;
+    opacity: 0.82;
+  }
+  100% {
+    stroke-dashoffset: -100;
+    opacity: 0.28;
+  }
+}
+
+@keyframes svgLineFlow2 {
+  0% {
+    stroke-dashoffset: -100;
+    opacity: 0.22;
+  }
+  50% {
+    stroke-dashoffset: 0;
+    opacity: 0.72;
+  }
+  100% {
+    stroke-dashoffset: 100;
+    opacity: 0.22;
+  }
+}
+
+.svg-line-flow-1 {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  animation: svgLineFlow1 4.6s ease-in-out infinite;
+  will-change: stroke-dashoffset, opacity;
+}
+
+.svg-line-flow-2 {
+  stroke-dasharray: 100;
+  stroke-dashoffset: -100;
+  animation: svgLineFlow2 5.4s ease-in-out infinite;
+  will-change: stroke-dashoffset, opacity;
+}
+
+/* Pure CSS Preloader Animations (Instant SSR Paint + Guaranteed Auto-Dismiss Fallback) */
+@keyframes preloaderOverlayExit {
+  0%,
+  76% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    visibility: visible;
+  }
+  99% {
+    opacity: 0;
+    transform: translate3d(0, -20px, 0);
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(0, -20px, 0);
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
+
+@keyframes preloaderRingDraw {
+  0% {
+    stroke-dashoffset: 283;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes preloaderProgressFill {
+  0% {
+    transform: scaleX(0.08);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes preloaderContentEnter {
+  0% {
+    opacity: 0.85;
+    transform: translate3d(0, 8px, 0) scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+@keyframes preloaderDiamondPulse {
+  0%,
+  100% {
+    transform: rotate(45deg) scale(0.85);
+    opacity: 0.5;
+  }
+  50% {
+    transform: rotate(45deg) scale(1.25);
+    opacity: 1;
+  }
+}
+
+.preloader-overlay-anim {
+  animation: preloaderOverlayExit 1.95s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.preloader-ring-anim {
+  stroke-dasharray: 283;
+  stroke-dashoffset: 283;
+  animation: preloaderRingDraw 1.35s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.preloader-progress-anim {
+  transform-origin: center;
+  animation: preloaderProgressFill 1.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.preloader-content-anim {
+  animation: preloaderContentEnter 0.55s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.preloader-diamond-1 {
+  animation: preloaderDiamondPulse 0.9s ease-in-out infinite;
+}
+.preloader-diamond-2 {
+  animation: preloaderDiamondPulse 0.9s ease-in-out 0.18s infinite;
+}
+.preloader-diamond-3 {
+  animation: preloaderDiamondPulse 0.9s ease-in-out 0.36s infinite;
+}
+
+/* Custom Athar Three-Diamonds Cursor: hide default OS cursor on ALL elements whenever custom cursor is actively tracking */
+html.custom-cursor-active,
+html.custom-cursor-active *,
+html.custom-cursor-active *::before,
+html.custom-cursor-active *::after {
+  cursor: none !important;
+}
+
+/* Subtle, Refined Option Micro-Interaction System (Replaces heavy Liquid Glass pill) */
+.athar-liquid-bar {
+  position: relative;
+  isolation: isolate;
+}
+
+.athar-liquid-pill {
+  display: none !important;
+}
+
+.athar-liquid-item {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transition:
+    transform 240ms cubic-bezier(0.22, 1, 0.36, 1),
+    color 200ms ease,
+    background-color 220ms ease,
+    border-color 220ms ease,
+    box-shadow 240ms ease;
+}
+
+.athar-liquid-item::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0;
+  background: radial-gradient(
+    130px circle at var(--lx, 50%) var(--ly, 50%),
+    rgba(164, 172, 134, 0.22) 0%,
+    rgba(203, 191, 163, 0.1) 52%,
+    transparent 100%
+  );
+  transition: opacity 220ms ease;
+}
+
+.athar-liquid-item[data-active="true"]::before {
+  background: radial-gradient(
+    130px circle at var(--lx, 50%) var(--ly, 50%),
+    rgba(235, 227, 210, 0.18) 0%,
+    rgba(164, 172, 134, 0.08) 55%,
+    transparent 100%
+  );
+}
+
+.athar-liquid-item:hover,
+.athar-liquid-item[data-item-hovered="true"] {
+  transform: translate3d(0, -1.5px, 0);
+}
+
+.athar-liquid-item:not([data-active="true"]):hover,
+.athar-liquid-item:not([data-active="true"])[data-item-hovered="true"] {
+  border-color: rgba(115, 122, 93, 0.55);
+  box-shadow: 0 6px 18px -6px rgba(65, 72, 51, 0.1);
+}
+
+.athar-liquid-item:hover::before,
+.athar-liquid-item[data-item-hovered="true"]::before {
+  opacity: 1;
+}
+
+.athar-liquid-item > * {
+  position: relative;
+  z-index: 2;
+}
+
+@keyframes atharStageSwitch {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 8px, 0) scale(0.99);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+.athar-stage-enter {
+  animation: atharStageSwitch 340ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+}

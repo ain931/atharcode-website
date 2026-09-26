@@ -1,0 +1,746 @@
+import type { Metadata } from "next";
+import { Playfair_Display, Inter, IBM_Plex_Sans_Arabic } from "next/font/google";
+import "./globals.css";
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-playfair",
+  display: "swap",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
+const ibmArabic = IBM_Plex_Sans_Arabic({
+  subsets: ["arabic"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-ibm-arabic",
+  display: "swap",
+});
+
+export const metadata: Metadata = {
+  title: "أثر | شركة متخصصة - تطوير مواقع وأنظمة أودو وتسويق رقمي",
+  description:
+    "أثر شركة متخصصة في تطوير المواقع والأنظمة المخصصة، تخصيص أنظمة أودو (Odoo)، تجارب AR/VR التفاعلية، وخدمات التسويق الرقمي. حوّل فكرتك إلى أثر رقمي حقيقي.",
+  keywords: [
+    "أثر",
+    "شركة برمجيات",
+    "تطوير مواقع",
+    "أنظمة أودو",
+    "Odoo",
+    "تجارب AR/VR التفاعلية",
+    "تسويق رقمي",
+    "AtharCode",
+  ],
+  authors: [{ name: "Athar Team" }],
+  icons: {
+    icon: [
+      { url: "/brand/app-icon-512.png", sizes: "32x32", type: "image/png" },
+      { url: "/brand/app-icon-512.png", sizes: "192x192", type: "image/png" },
+      { url: "/brand/app-icon-512.png", sizes: "512x512", type: "image/png" },
+    ],
+    shortcut: "/brand/app-icon-512.png",
+    apple: [
+      { url: "/brand/app-icon-512.png", sizes: "180x180", type: "image/png" },
+    ],
+  },
+  openGraph: {
+    title: "أثر | شركة متخصصة - تطوير مواقع وأنظمة أودو وتسويق رقمي",
+    description:
+      "أثر شركة متخصصة في تطوير المواقع والأنظمة المخصصة، تخصيص أنظمة أودو (Odoo)، تجارب AR/VR التفاعلية، وخدمات التسويق الرقمي. حوّل فكرتك إلى أثر رقمي حقيقي.",
+    url: "https://atharcode.com",
+    siteName: "أثر | Athar",
+    locale: "ar_SA",
+    type: "website",
+  },
+};
+
+const INSTANT_INTERACTIVITY_SCRIPT = `
+(function() {
+  if (typeof window === "undefined") return;
+  var isHovered = false;
+  var isPressed = false;
+
+  // 1. Ensure Preloader Never Blocks Clicks After 1.8s
+  function dismissPreloader() {
+    var preloader = document.getElementById("athar-preloader");
+    if (preloader) {
+      preloader.style.pointerEvents = "none";
+      preloader.style.display = "none";
+    }
+  }
+  setTimeout(dismissPreloader, 1850);
+
+  // 2. Instant Bilingual Switcher (Arabic <-> English)
+  function applyLanguage(lang) {
+    var html = document.documentElement;
+    html.lang = lang;
+    html.dir = lang === "ar" ? "rtl" : "ltr";
+
+    var root = document.getElementById("athar-page-root");
+    if (root) {
+      if (lang === "ar") {
+        root.classList.remove("text-left");
+        root.classList.add("text-right");
+      } else {
+        root.classList.remove("text-right");
+        root.classList.add("text-left");
+      }
+    }
+
+    var textNodes = document.querySelectorAll("[data-ar][data-en]");
+    for (var i = 0; i < textNodes.length; i++) {
+      var el = textNodes[i];
+      var val = el.getAttribute("data-" + lang);
+      if (val !== null) {
+        el.textContent = val;
+      }
+    }
+
+    var placeholders = document.querySelectorAll("[data-placeholder-ar][data-placeholder-en]");
+    for (var j = 0; j < placeholders.length; j++) {
+      var inp = placeholders[j];
+      var ph = inp.getAttribute("data-placeholder-" + lang);
+      if (ph !== null) {
+        inp.setAttribute("placeholder", ph);
+      }
+    }
+
+    var arrows = document.querySelectorAll("[data-dir-arrow]");
+    for (var k = 0; k < arrows.length; k++) {
+      var arr = arrows[k];
+      if (lang === "ar") {
+        arr.classList.add("rotate-[-90deg]");
+      } else {
+        arr.classList.remove("rotate-[-90deg]");
+      }
+    }
+
+    try {
+      window.dispatchEvent(new CustomEvent("athar:locale-change", { detail: lang }));
+    } catch (err) {}
+  }
+
+  if (window.location.pathname && window.location.pathname.indexOf("/en") === 0) {
+    setTimeout(function() { applyLanguage("en"); }, 0);
+  }
+
+  // 3. Three-Diamond Custom Cursor & Background Lantern Illumination
+  var isOverDark = false;
+
+  function inspectTarget(startEl) {
+    var dark = false;
+    var interactive = false;
+    var cur = startEl;
+    while (cur && cur !== document.body && cur !== document.documentElement) {
+      var tag = cur.tagName;
+      if (
+        tag === "A" ||
+        tag === "BUTTON" ||
+        tag === "INPUT" ||
+        tag === "TEXTAREA" ||
+        tag === "SELECT" ||
+        tag === "LABEL"
+      ) {
+        interactive = true;
+      }
+      var role = cur.getAttribute && cur.getAttribute("role");
+      if (role === "button" || role === "tab") {
+        interactive = true;
+      }
+      if (
+        tag === "FOOTER" ||
+        (cur.getAttribute &&
+          (cur.getAttribute("data-dark-zone") === "true" ||
+            cur.getAttribute("data-active") === "true"))
+      ) {
+        dark = true;
+      }
+      var cls = typeof cur.className === "string" ? cur.className : "";
+      if (
+        cls.indexOf("bg-[#414833]") !== -1 ||
+        cls.indexOf("bg-[#23271c]") !== -1 ||
+        cls.indexOf("bg-[#2e3324]") !== -1 ||
+        cls.indexOf("from-[#414833]") !== -1 ||
+        cls.indexOf("from-[#23271c]") !== -1
+      ) {
+        dark = true;
+      }
+      cur = cur.parentElement;
+    }
+    return { dark: dark, interactive: interactive };
+  }
+
+  function applyVisual() {
+    var wrapper = document.getElementById("athar-cursor-scale");
+    var ring = document.getElementById("athar-cursor-ring");
+    var topDiamond = document.getElementById("athar-cursor-top-diamond");
+    if (!wrapper || !ring || !topDiamond) return;
+    var scale = isPressed ? 0.85 : isHovered ? 1.18 : 1;
+    wrapper.style.transform = "translate(-50%, -50%) scale(" + scale + ")";
+
+    if (isOverDark) {
+      ring.style.width = isHovered ? "42px" : "38px";
+      ring.style.height = isHovered ? "42px" : "38px";
+      ring.style.borderColor = "rgba(235, 227, 210, 0.9)";
+      ring.style.backgroundColor = "rgba(235, 227, 210, 0.18)";
+      ring.style.boxShadow =
+        "0 4px 16px rgba(0, 0, 0, 0.28), 0 0 12px rgba(235, 227, 210, 0.22)";
+      topDiamond.setAttribute("fill", "#EBE3D2");
+    } else {
+      ring.style.width = "36px";
+      ring.style.height = "36px";
+      ring.style.borderColor = "transparent";
+      ring.style.backgroundColor = "transparent";
+      ring.style.boxShadow = "none";
+      topDiamond.setAttribute("fill", isHovered ? "#737A5D" : "#414833");
+    }
+  }
+
+  var lastMouseX = 0;
+  var lastMouseY = 0;
+
+  function updateLiquidBars(x, y) {
+    var liquidBars = document.querySelectorAll("[data-liquid-bar]");
+    var insideAnyBar = false;
+
+    for (var b = 0; b < liquidBars.length; b++) {
+      var bar = liquidBars[b];
+      var barRect = bar.getBoundingClientRect();
+      var inBar =
+        x >= barRect.left - 6 &&
+        x <= barRect.right + 6 &&
+        y >= barRect.top - 6 &&
+        y <= barRect.bottom + 6;
+
+      var items = bar.querySelectorAll("[data-liquid-item]");
+      if (!inBar) {
+        for (var u = 0; u < items.length; u++) {
+          if (items[u].getAttribute("data-item-hovered") === "true") {
+            items[u].removeAttribute("data-item-hovered");
+          }
+        }
+        continue;
+      }
+
+      insideAnyBar = true;
+      for (var i = 0; i < items.length; i++) {
+        var it = items[i];
+        var r = it.getBoundingClientRect();
+        if (x >= r.left && x <= r.right && y >= r.top && y <= r.bottom) {
+          var lx = Math.round(x - r.left);
+          var ly = Math.round(y - r.top);
+          it.style.setProperty("--lx", lx + "px");
+          it.style.setProperty("--ly", ly + "px");
+          it.setAttribute("data-item-hovered", "true");
+        } else if (it.getAttribute("data-item-hovered") === "true") {
+          it.removeAttribute("data-item-hovered");
+        }
+      }
+    }
+
+    // Also handle the distinct Website Top Bar ([data-topbar-nav])
+    var topbar = document.querySelector("[data-topbar-nav]");
+    if (topbar) {
+      var tbRect = topbar.getBoundingClientRect();
+      var inTopbar =
+        x >= tbRect.left - 8 &&
+        x <= tbRect.right + 8 &&
+        y >= tbRect.top - 8 &&
+        y <= tbRect.bottom + 8;
+      var beamEl = topbar.querySelector("[data-topbar-beam]");
+      var links = topbar.querySelectorAll("[data-topbar-link]");
+
+      var hoveredLink = null;
+      if (inTopbar) {
+        insideAnyBar = true;
+        for (var l = 0; l < links.length; l++) {
+          var lr = links[l].getBoundingClientRect();
+          if (x >= lr.left - 8 && x <= lr.right + 8 && y >= lr.top - 8 && y <= lr.bottom + 8) {
+            hoveredLink = links[l];
+            break;
+          }
+        }
+      }
+
+      if (hoveredLink) {
+        var lRect = hoveredLink.getBoundingClientRect();
+        var lxPos = Math.round((lRect.left - tbRect.left) * 10) / 10;
+        var lw = Math.round(lRect.width * 10) / 10;
+        if (beamEl) {
+          beamEl.style.opacity = "1";
+          beamEl.style.width = lw + "px";
+          beamEl.style.transform = "translate3d(" + lxPos + "px, 0, 0)";
+        }
+      } else {
+        if (beamEl) beamEl.style.opacity = "0";
+      }
+    }
+
+    return insideAnyBar;
+  }
+
+  function onMove(x, y, targetEl) {
+    lastMouseX = x;
+    lastMouseY = y;
+
+    var cursor = document.getElementById("athar-brand-cursor");
+    if (cursor) {
+      cursor.style.transform = "translate3d(" + x + "px, " + y + "px, 0)";
+      cursor.style.opacity = "1";
+      document.documentElement.classList.add("custom-cursor-active");
+    }
+
+    var hit = (targetEl && targetEl.tagName ? targetEl : null) || document.elementFromPoint(x, y);
+    if (hit) {
+      var state = inspectTarget(hit);
+      if (state.dark !== isOverDark || state.interactive !== isHovered) {
+        isOverDark = state.dark;
+        isHovered = state.interactive;
+        applyVisual();
+      }
+    }
+
+    // 3A. Subtle Option Micro-Interaction across section bars + Distinct Top Bar
+    var isInsideAnyBar = updateLiquidBars(x, y);
+
+    // 3A-bis. Subtle Interactive CTA Buttons ([data-animated-btn])
+    var animBtns = document.querySelectorAll("[data-animated-btn]");
+    for (var ab = 0; ab < animBtns.length; ab++) {
+      var btn = animBtns[ab];
+      var bRect = btn.getBoundingClientRect();
+      var inBtn = x >= bRect.left && x <= bRect.right && y >= bRect.top && y <= bRect.bottom;
+      var btnSheen = btn.querySelector("[data-btn-sheen]");
+      if (inBtn) {
+        var blx = x - bRect.left;
+        var bly = y - bRect.top;
+        var bnx = (blx / (bRect.width || 1)) - 0.5;
+        var bny = (bly / (bRect.height || 1)) - 0.5;
+        var bMoveX = (bnx * 2.5).toFixed(1);
+        var bMoveY = (bny * 2 - 1.5).toFixed(1);
+        btn.style.transform = "translate3d(" + bMoveX + "px, " + bMoveY + "px, 0) scale3d(1.015, 1.015, 1)";
+        btn.setAttribute("data-btn-active", "1");
+        if (btnSheen) {
+          var isDarkBtn = btn.getAttribute("data-animated-btn") === "dark";
+          btnSheen.style.opacity = "1";
+          btnSheen.style.background = isDarkBtn
+            ? "radial-gradient(120px circle at " + blx + "px " + bly + "px, rgba(235, 227, 210, 0.22) 0%, rgba(164, 172, 134, 0.08) 55%, transparent 80%)"
+            : "radial-gradient(120px circle at " + blx + "px " + bly + "px, rgba(255, 255, 255, 0.55) 0%, rgba(164, 172, 134, 0.14) 55%, transparent 80%)";
+        }
+      } else if (btn.getAttribute("data-btn-active") === "1") {
+        btn.setAttribute("data-btn-active", "0");
+        btn.style.transform = "";
+        if (btnSheen) btnSheen.style.opacity = "0";
+      }
+    }
+
+    // 3B. Interactive Card Movement, Softened Spotlight & Illuminated Pattern on Cards
+    var cards = document.querySelectorAll("[data-spotlight-card]");
+    var isInsideAnyCard = false;
+    for (var cIdx = 0; cIdx < cards.length; cIdx++) {
+      var card = cards[cIdx];
+      var rect = card.getBoundingClientRect();
+      var inside = x >= rect.left && x <= rect.right && y >= rect.top && y <= rect.bottom;
+      var beam = card.querySelector("[data-spotlight-beam]");
+      var sheen = card.querySelector("[data-spotlight-sheen]");
+      var pat = card.querySelector("[data-spotlight-pattern]");
+      if (inside) {
+        isInsideAnyCard = true;
+        var lx = x - rect.left;
+        var ly = y - rect.top;
+        var nx = (lx / (rect.width || 1)) - 0.5;
+        var ny = (ly / (rect.height || 1)) - 0.5;
+        var tiltScale = parseFloat(card.getAttribute("data-tilt-scale") || "1") || 1;
+        var degFactor = 5.5 * tiltScale;
+        var moveFactor = 4 * tiltScale;
+        var rotX = (-ny * degFactor).toFixed(2);
+        var rotY = (nx * degFactor).toFixed(2);
+        var moveX = (nx * moveFactor).toFixed(1);
+        var moveY = (ny * moveFactor - moveFactor).toFixed(1);
+        card.style.transform = "perspective(1000px) translate3d(" + moveX + "px, " + moveY + "px, 0) rotateX(" + rotX + "deg) rotateY(" + rotY + "deg) scale3d(1.008, 1.008, 1.008)";
+        card.style.borderColor = "rgba(115, 122, 93, 0.85)";
+        card.style.boxShadow = "0 18px 40px rgba(65, 72, 51, 0.11), 0 0 22px rgba(164, 172, 134, 0.18)";
+        card.setAttribute("data-card-active", "1");
+        if (beam) {
+          beam.style.opacity = "1";
+          beam.style.background = "radial-gradient(340px circle at " + lx + "px " + ly + "px, rgba(164, 172, 134, 0.22) 0%, rgba(203, 191, 163, 0.12) 45%, transparent 78%)";
+        }
+        if (sheen) {
+          sheen.style.opacity = "1";
+          sheen.style.background = "radial-gradient(190px circle at " + lx + "px " + ly + "px, rgba(255, 254, 250, 0.48) 0%, transparent 72%)";
+        }
+        if (pat) {
+          pat.style.opacity = "1";
+          var pMask = "radial-gradient(250px circle at " + lx + "px " + ly + "px, rgba(0,0,0,1) 0%, rgba(0,0,0,0.58) 46%, transparent 78%)";
+          pat.style.setProperty("-webkit-mask-image", pMask);
+          pat.style.setProperty("mask-image", pMask);
+        }
+      } else if (card.getAttribute("data-card-active") === "1") {
+        card.setAttribute("data-card-active", "0");
+        card.style.transform = "perspective(1000px) translate3d(0px, 0px, 0) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)";
+        card.style.borderColor = "";
+        card.style.boxShadow = "";
+        if (beam) beam.style.opacity = "0";
+        if (sheen) sheen.style.opacity = "0";
+        if (pat) pat.style.opacity = "0";
+      }
+    }
+
+    var lantern = document.getElementById("athar-lantern-pattern");
+    if (lantern) {
+      var mask = "radial-gradient(330px circle at " + x + "px " + y + "px, rgba(0,0,0,1) 0%, rgba(0,0,0,0.75) 45%, rgba(0,0,0,0.22) 75%, transparent 100%)";
+      lantern.style.setProperty("-webkit-mask-image", mask);
+      lantern.style.setProperty("mask-image", mask);
+      lantern.style.opacity = (isInsideAnyCard || isInsideAnyBar) ? "0.18" : "0.95";
+    }
+    var glow = document.getElementById("athar-lantern-glow");
+    if (glow) {
+      glow.style.background = "radial-gradient(350px circle at " + x + "px " + y + "px, rgba(164, 172, 134, 0.16) 0%, rgba(203, 191, 163, 0.08) 48%, transparent 100%)";
+    }
+    var waves = document.getElementById("athar-wave-parallax");
+    if (waves && window.innerWidth && window.innerHeight) {
+      var mx = (x / window.innerWidth - 0.5) * -18;
+      var my = (y / window.innerHeight - 0.5) * -12;
+      waves.style.transform = "translate3d(" + mx + "px, " + my + "px, 0)";
+    }
+  }
+
+  window.addEventListener("pointermove", function(e) {
+    if (e.pointerType === "touch") return;
+    onMove(e.clientX, e.clientY, e.target);
+  }, { passive: true });
+
+  window.addEventListener("mousemove", function(e) {
+    onMove(e.clientX, e.clientY, e.target);
+  }, { passive: true });
+
+  window.addEventListener("mouseover", function(e) {
+    onMove(e.clientX, e.clientY, e.target);
+  }, { passive: true });
+
+  window.addEventListener("mousedown", function() {
+    isPressed = true;
+    applyVisual();
+  }, { passive: true });
+
+  window.addEventListener("mouseup", function() {
+    isPressed = false;
+    applyVisual();
+  }, { passive: true });
+
+  function triggerStageAnimation(el) {
+    if (!el) return;
+    el.classList.remove("athar-stage-enter");
+    void el.offsetWidth;
+    el.classList.add("athar-stage-enter");
+  }
+
+  // 4. Service Selection Helper (Updates DOM + Dispatches Event for React)
+  function selectServiceOption(serviceId) {
+    if (!serviceId) return;
+    var input = document.getElementById("selected-service-input");
+    if (input) input.value = serviceId;
+
+    var options = document.querySelectorAll("[data-service-option]");
+    for (var i = 0; i < options.length; i++) {
+      var btn = options[i];
+      var id = btn.getAttribute("data-service-option");
+      var check = btn.querySelector("[data-service-check]");
+      var active = id === serviceId;
+      btn.setAttribute("aria-pressed", active ? "true" : "false");
+      btn.setAttribute("data-active", active ? "true" : "false");
+      if (active) {
+        btn.className = "athar-liquid-item p-3.5 rounded-xl text-start text-xs font-bold border cursor-pointer flex items-center justify-between gap-2 bg-[#414833] text-[#FDFCF9] border-[#414833] shadow-md ring-2 ring-[#A4AC86]/50";
+        if (check) {
+          check.className = "relative z-10 w-5 h-5 rounded-full flex items-center justify-center shrink-0 transition-all duration-200 pointer-events-none bg-[#A4AC86] text-[#414833] opacity-100 scale-100";
+        }
+      } else {
+        btn.className = "athar-liquid-item p-3.5 rounded-xl text-start text-xs font-bold border cursor-pointer flex items-center justify-between gap-2 bg-[#FDFCF9] text-[#414833] border-[#CBBFA3]/70";
+        if (check) {
+          check.className = "relative z-10 w-5 h-5 rounded-full flex items-center justify-center shrink-0 transition-all duration-200 pointer-events-none bg-[#EBE3D2] text-transparent opacity-0 scale-75";
+        }
+      }
+    }
+    if (lastMouseX || lastMouseY) updateLiquidBars(lastMouseX, lastMouseY);
+    try {
+      window.dispatchEvent(new CustomEvent("athar:select-service", { detail: serviceId }));
+    } catch (err) {}
+  }
+
+  // 5. Universal Click Delegation for All Interactive Elements
+  document.addEventListener("click", function(e) {
+    var target = e.target;
+    if (!target || !target.closest) return;
+
+    // A. Preloader click
+    if (target.closest("#athar-preloader")) {
+      dismissPreloader();
+      return;
+    }
+
+    // B. Language Switcher Toggle (EN <-> عربي)
+    if (target.closest("[data-toggle-locale]")) {
+      var curLang = document.documentElement.lang === "en" ? "en" : "ar";
+      var nextLang = curLang === "ar" ? "en" : "ar";
+      applyLanguage(nextLang);
+      return;
+    }
+
+    // C. Auto-Select Service from Service Card / Hero / Portfolio / Footer & Scroll to #contact
+    var selectTrigger = target.closest("[data-select-service]");
+    if (selectTrigger) {
+      var serviceId = selectTrigger.getAttribute("data-select-service");
+      selectServiceOption(serviceId);
+      var closeModalAttr = selectTrigger.getAttribute("data-close-modal");
+      if (closeModalAttr) {
+        var m = document.querySelector('[data-project-modal="' + closeModalAttr + '"]');
+        if (m) {
+          m.classList.remove("flex");
+          m.classList.add("hidden");
+        }
+      }
+      var contactSection = document.getElementById("contact");
+      if (contactSection) {
+        e.preventDefault();
+        contactSection.scrollIntoView({ behavior: "smooth" });
+      }
+      return;
+    }
+
+    // D. Direct Service Option Button Click inside #contact
+    var serviceOptionBtn = target.closest("[data-service-option]");
+    if (serviceOptionBtn) {
+      var optId = serviceOptionBtn.getAttribute("data-service-option");
+      selectServiceOption(optId);
+      return;
+    }
+
+    // E. Hero Showcase Domain Tab Click
+    var heroTabBtn = target.closest("[data-hero-tab]");
+    if (heroTabBtn) {
+      var tabIdx = heroTabBtn.getAttribute("data-hero-tab");
+      var allHeroTabs = document.querySelectorAll("[data-hero-tab]");
+      for (var i = 0; i < allHeroTabs.length; i++) {
+        var b = allHeroTabs[i];
+        var idx = b.getAttribute("data-hero-tab");
+        var icon = b.querySelector("[data-hero-tab-icon]");
+        var isAct = idx === tabIdx;
+        b.setAttribute("aria-selected", isAct ? "true" : "false");
+        b.setAttribute("data-active", isAct ? "true" : "false");
+        b.className = "athar-liquid-item relative p-2.5 sm:p-3 rounded-2xl text-start cursor-pointer border " +
+          (isAct
+            ? "bg-[#414833] text-[#FDFCF9] border-[#414833] shadow-md"
+            : "bg-[#FDFCF9] text-[#414833] border-[#CBBFA3]/65");
+        if (icon) {
+          icon.setAttribute("class", "w-4 h-4 shrink-0 " + (isAct ? "text-[#EBE3D2]" : "text-[#737A5D]"));
+        }
+      }
+      if (lastMouseX || lastMouseY) updateLiquidBars(lastMouseX, lastMouseY);
+      var allHeroPanels = document.querySelectorAll("[data-hero-panel]");
+      for (var j = 0; j < allHeroPanels.length; j++) {
+        var p = allHeroPanels[j];
+        var pIdx = p.getAttribute("data-hero-panel");
+        if (pIdx === tabIdx) {
+          p.classList.remove("hidden", "opacity-0");
+          p.classList.add("grid", "opacity-100");
+          triggerStageAnimation(p);
+        } else {
+          p.classList.remove("grid", "opacity-100", "athar-stage-enter");
+          p.classList.add("hidden", "opacity-0");
+        }
+      }
+      return;
+    }
+
+    // F. Portfolio Category Filter Click
+    var filterBtn = target.closest("[data-filter-category]");
+    if (filterBtn) {
+      var catId = filterBtn.getAttribute("data-filter-category");
+      var allFilterBtns = document.querySelectorAll("[data-filter-category]");
+      for (var k = 0; k < allFilterBtns.length; k++) {
+        var fb = allFilterBtns[k];
+        var isCatAct = fb.getAttribute("data-filter-category") === catId;
+        fb.setAttribute("aria-selected", isCatAct ? "true" : "false");
+        fb.setAttribute("data-active", isCatAct ? "true" : "false");
+        fb.className = "athar-liquid-item relative whitespace-nowrap px-3.5 sm:px-6 py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm font-semibold cursor-pointer " +
+          (isCatAct ? "bg-[#414833] text-[#FDFCF9] shadow-md" : "text-[#414833]");
+      }
+      if (lastMouseX || lastMouseY) updateLiquidBars(lastMouseX, lastMouseY);
+      var allProjectCards = document.querySelectorAll("[data-project-card]");
+      for (var c = 0; c < allProjectCards.length; c++) {
+        var card = allProjectCards[c];
+        var cardCat = card.getAttribute("data-project-category");
+        if (catId === "all" || cardCat === catId) {
+          card.classList.remove("hidden");
+          card.classList.add("block");
+          triggerStageAnimation(card);
+        } else {
+          card.classList.remove("block", "athar-stage-enter");
+          card.classList.add("hidden");
+        }
+      }
+      return;
+    }
+
+    // G. Open Project Scope Modal
+    var openProjBtn = target.closest("[data-open-project]");
+    if (openProjBtn) {
+      var projId = openProjBtn.getAttribute("data-open-project");
+      var modal = document.querySelector('[data-project-modal="' + projId + '"]');
+      if (modal) {
+        modal.classList.remove("hidden");
+        modal.classList.add("flex");
+      }
+      return;
+    }
+
+    // H. Close Project Scope Modal (Close button or backdrop click)
+    var closeBtn = target.closest("[data-close-modal]");
+    if (closeBtn) {
+      if (closeBtn.hasAttribute("data-project-modal") && target !== closeBtn) {
+        return;
+      }
+      var closeId = closeBtn.getAttribute("data-close-modal");
+      var targetModal = document.querySelector('[data-project-modal="' + closeId + '"]');
+      if (targetModal) {
+        targetModal.classList.remove("flex");
+        targetModal.classList.add("hidden");
+      }
+      return;
+    }
+
+    // I. Philosophy Step Navigator Button Click
+    var stepBtn = target.closest("[data-step-btn]");
+    if (stepBtn) {
+      var stepIdx = stepBtn.getAttribute("data-step-btn");
+      var allStepBtns = document.querySelectorAll("[data-step-btn]");
+      for (var s = 0; s < allStepBtns.length; s++) {
+        var sb = allStepBtns[s];
+        var sIdx = sb.getAttribute("data-step-btn");
+        var isStepAct = sIdx === stepIdx;
+        sb.setAttribute("aria-selected", isStepAct ? "true" : "false");
+        sb.setAttribute("data-active", isStepAct ? "true" : "false");
+        sb.className = "athar-liquid-item relative p-3 sm:p-4 rounded-xl sm:rounded-2xl text-start cursor-pointer border " +
+          (isStepAct
+            ? "bg-[#414833] text-[#FDFCF9] border-[#414833] shadow-lg"
+            : "bg-[#FDFCF9] text-[#414833] border-[#CBBFA3]/65");
+        var badge = sb.querySelector("[data-step-badge]");
+        var dot = sb.querySelector("[data-step-dot]");
+        var sub = sb.querySelector("[data-step-sub]");
+        if (badge) badge.className = "text-[11px] sm:text-xs font-bold uppercase tracking-wider " + (isStepAct ? "text-[#A4AC86]" : "text-[#737A5D]");
+        if (dot) dot.className = "w-2 h-2 rounded-full " + (isStepAct ? "bg-[#A4AC86] animate-pulse" : "bg-[#CBBFA3]");
+        if (sub) sub.className = "relative z-10 text-[10px] sm:text-[11px] truncate mt-0.5 pointer-events-none " + (isStepAct ? "text-[#EBE3D2]/80" : "text-[#737A5D]");
+      }
+      if (lastMouseX || lastMouseY) updateLiquidBars(lastMouseX, lastMouseY);
+      var allStepPanels = document.querySelectorAll("[data-step-panel]");
+      for (var sp = 0; sp < allStepPanels.length; sp++) {
+        var panel = allStepPanels[sp];
+        if (panel.getAttribute("data-step-panel") === stepIdx) {
+          panel.classList.remove("hidden", "opacity-0");
+          panel.classList.add("grid", "opacity-100");
+          triggerStageAnimation(panel);
+        } else {
+          panel.classList.remove("grid", "opacity-100", "athar-stage-enter");
+          panel.classList.add("hidden", "opacity-0");
+        }
+      }
+      return;
+    }
+
+    // J. Contact Reset Button
+    if (target.closest("#contact-reset-btn")) {
+      var form = document.getElementById("contact-inquiry-form");
+      var successBox = document.getElementById("contact-success-box");
+      if (form && successBox) {
+        form.reset();
+        successBox.classList.remove("flex");
+        successBox.classList.add("hidden");
+        form.classList.remove("hidden");
+        form.classList.add("block");
+      }
+      return;
+    }
+
+    // K. Footer Scroll to Top
+    if (target.closest("#footer-scroll-top")) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
+
+    // L. Mobile Menu Toggle & Links
+    if (target.closest("#mobile-menu-toggle")) {
+      var overlay = document.getElementById("mobile-menu-overlay");
+      if (overlay) {
+        var isHidden = overlay.classList.contains("hidden");
+        if (isHidden) {
+          overlay.classList.remove("hidden");
+          overlay.classList.add("flex");
+        } else {
+          overlay.classList.remove("flex");
+          overlay.classList.add("hidden");
+        }
+      }
+      return;
+    }
+    if (target.closest("[data-mobile-nav-link]")) {
+      var menuOverlay = document.getElementById("mobile-menu-overlay");
+      if (menuOverlay) {
+        menuOverlay.classList.remove("flex");
+        menuOverlay.classList.add("hidden");
+      }
+    }
+  });
+
+  // 6. Contact Form Submission Fallback
+  document.addEventListener("submit", function(e) {
+    var form = e.target;
+    if (form && form.id === "contact-inquiry-form") {
+      e.preventDefault();
+      var successBox = document.getElementById("contact-success-box");
+      if (successBox) {
+        form.classList.remove("block");
+        form.classList.add("hidden");
+        successBox.classList.remove("hidden");
+        successBox.classList.add("flex");
+      }
+    }
+  });
+
+  // 7. Escape Key Closes Any Open Project Modal
+  document.addEventListener("keydown", function(e) {
+    if (e.key === "Escape") {
+      var modals = document.querySelectorAll("[data-project-modal]");
+      for (var i = 0; i < modals.length; i++) {
+        modals[i].classList.remove("flex");
+        modals[i].classList.add("hidden");
+      }
+    }
+  });
+})();
+`;
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html
+      lang="ar"
+      dir="rtl"
+      className={`${playfair.variable} ${inter.variable} ${ibmArabic.variable} scroll-smooth`}
+    >
+      <body className="min-h-screen bg-[#FDFCF9] text-[#414833] font-sans antialiased selection:bg-[#A4AC86]/30 selection:text-[#414833]">
+        {children}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: INSTANT_INTERACTIVITY_SCRIPT,
+          }}
+        />
+      </body>
+    </html>
+  );
+}
