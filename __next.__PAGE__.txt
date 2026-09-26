@@ -1,0 +1,19 @@
+1:"$Sreact.fragment"
+2:I[47257,["/atharcode-website/_next/static/chunks/453cd1tlxz5wi.js"],"ClientPageRoot"]
+3:I[52683,["/atharcode-website/_next/static/chunks/453cd1tlxz5wi.js","/atharcode-website/_next/static/chunks/0xy5wua3anau3.js"],"default"]
+6:I[97367,["/atharcode-website/_next/static/chunks/453cd1tlxz5wi.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+b:I[97367,["/atharcode-website/_next/static/chunks/453cd1tlxz5wi.js"],"ViewportBoundary"]
+c:I[97367,["/atharcode-website/_next/static/chunks/453cd1tlxz5wi.js"],"MetadataBoundary"]
+d:I[27201,["/atharcode-website/_next/static/chunks/453cd1tlxz5wi.js"],"IconMark"]
+a:X
+0:{"buildId":"AZFsGeU0BKaW6OBvlOAy2","data":[{"rsc":["$","$1","c",{"children":[["$","$L2",null,{"Component":"$3","serverProvidedParams":{"searchParams":{},"params":{},"promises":["$@4","$@5"]}}],[["$","script","script-0",{"src":"/atharcode-website/_next/static/chunks/0xy5wua3anau3.js","async":true}]],["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]]}],"isPartial":"$@9","staleTime":"$a","varyParams":null},{"rsc":["$","$1","h",{"children":[null,["$","$Lb",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$Lc",null,{"children":["$","$7",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"أثر | شركة متخصصة - تطوير مواقع وأنظمة أودو وتسويق رقمي"}],["$","meta","1",{"name":"description","content":"أثر شركة متخصصة في تطوير المواقع والأنظمة المخصصة، تخصيص أنظمة أودو (Odoo)، تجارب AR/VR التفاعلية، وخدمات التسويق الرقمي. حوّل فكرتك إلى أثر رقمي حقيقي."}],["$","meta","2",{"name":"author","content":"Athar Team"}],["$","meta","3",{"name":"keywords","content":"أثر,شركة برمجيات,تطوير مواقع,أنظمة أودو,Odoo,تجارب AR/VR التفاعلية,تسويق رقمي,AtharCode"}],["$","meta","4",{"property":"og:title","content":"أثر | شركة متخصصة - تطوير مواقع وأنظمة أودو وتسويق رقمي"}],["$","meta","5",{"property":"og:description","content":"أثر شركة متخصصة في تطوير المواقع والأنظمة المخصصة، تخصيص أنظمة أودو (Odoo)، تجارب AR/VR التفاعلية، وخدمات التسويق الرقمي. حوّل فكرتك إلى أثر رقمي حقيقي."}],["$","meta","6",{"property":"og:url","content":"https://atharcode.com"}],["$","meta","7",{"property":"og:site_name","content":"أثر | Athar"}],["$","meta","8",{"property":"og:locale","content":"ar_SA"}],["$","meta","9",{"property":"og:type","content":"website"}],["$","meta","10",{"name":"twitter:card","content":"summary"}],["$","meta","11",{"name":"twitter:title","content":"أثر | شركة متخصصة - تطوير مواقع وأنظمة أودو وتسويق رقمي"}],["$","meta","12",{"name":"twitter:description","content":"أثر شركة متخصصة في تطوير المواقع والأنظمة المخصصة، تخصيص أنظمة أودو (Odoo)، تجارب AR/VR التفاعلية، وخدمات التسويق الرقمي. حوّل فكرتك إلى أثر رقمي حقيقي."}],["$","link","13",{"rel":"shortcut icon","href":"/brand/app-icon-512.png"}],["$","link","14",{"rel":"icon","href":"/brand/app-icon-512.png","sizes":"32x32","type":"image/png"}],["$","link","15",{"rel":"icon","href":"/brand/app-icon-512.png","sizes":"192x192","type":"image/png"}],["$","link","16",{"rel":"icon","href":"/brand/app-icon-512.png","sizes":"512x512","type":"image/png"}],["$","link","17",{"rel":"apple-touch-icon","href":"/brand/app-icon-512.png","sizes":"180x180","type":"image/png"}],["$","$Ld","18",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"isPartial":"$@e","staleTime":"$a","varyParams":null}],"isUpgradeableISRFallback":false,"a":"$@f","rootVaryParams":null,"needsRuntimeRequest":"$@10"}
+4:{}
+5:"$0:data:0:rsc:props:children:0:props:serverProvidedParams:params"
+8:null
+10:true
+a:300
+a:C
+f:0
+e:"$undefined"
+9:"$undefined"
