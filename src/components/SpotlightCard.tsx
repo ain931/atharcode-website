@@ -25,10 +25,7 @@ export function SpotlightCard({
   const patternRef = useRef<HTMLDivElement>(null);
   const rafRef = useRef<number | null>(null);
 
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const clientX = e.clientX;
-    const clientY = e.clientY;
-
+  const applySpotlightAt = (clientX: number, clientY: number) => {
     if (rafRef.current !== null) return;
     rafRef.current = requestAnimationFrame(() => {
       rafRef.current = null;
@@ -68,6 +65,17 @@ export function SpotlightCard({
     });
   };
 
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    applySpotlightAt(e.clientX, e.clientY);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
+    const touch = e.touches[0];
+    if (touch) {
+      applySpotlightAt(touch.clientX, touch.clientY);
+    }
+  };
+
   const handleMouseLeave = () => {
     const card = cardRef.current;
     if (card) {
@@ -88,6 +96,10 @@ export function SpotlightCard({
       data-tilt-scale={tiltScale}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
+      onTouchStart={handleTouchMove}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleMouseLeave}
+      onTouchCancel={handleMouseLeave}
       style={{
         transformStyle: "preserve-3d",
         transition:

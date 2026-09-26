@@ -197,12 +197,23 @@ body {
   animation: preloaderDiamondPulse 0.9s ease-in-out 0.36s infinite;
 }
 
-/* Custom Athar Three-Diamonds Cursor: hide default OS cursor on ALL elements whenever custom cursor is actively tracking */
-html.custom-cursor-active,
-html.custom-cursor-active *,
-html.custom-cursor-active *::before,
-html.custom-cursor-active *::after {
-  cursor: none !important;
+/* Custom Athar Three-Diamonds Cursor: hide default OS cursor on desktop mouse devices */
+@media (hover: hover) and (pointer: fine) and (min-width: 768px) {
+  html.custom-cursor-active,
+  html.custom-cursor-active *,
+  html.custom-cursor-active *::before,
+  html.custom-cursor-active *::after {
+    cursor: none !important;
+  }
+}
+
+/* Always hide the 3-diamond cursor visual on mobile / touch screens */
+@media (hover: none), (pointer: coarse), (max-width: 767px) {
+  #athar-brand-cursor {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+  }
 }
 
 /* Subtle, Refined Option Micro-Interaction System (Replaces heavy Liquid Glass pill) */

@@ -90,7 +90,27 @@ export function BrandCursor() {
       }
     };
 
+    let lastTouchTime = 0;
+    const isMobileOrTouchDevice = () =>
+      window.innerWidth < 768 ||
+      (window.matchMedia &&
+        window.matchMedia("(hover: none), (pointer: coarse)").matches);
+
+    const hideCursorForTouch = () => {
+      lastTouchTime = Date.now();
+      isVisible = false;
+      if (cursorRef.current) {
+        cursorRef.current.style.opacity = "0";
+      }
+      document.documentElement.classList.remove("custom-cursor-active");
+    };
+
     const updatePosition = (clientX: number, clientY: number, targetEl?: EventTarget | null) => {
+      if (isMobileOrTouchDevice() || Date.now() - lastTouchTime < 800) {
+        if (isVisible) hideCursorForTouch();
+        return;
+      }
+
       const el = cursorRef.current;
       if (!el) return;
 
@@ -116,7 +136,10 @@ export function BrandCursor() {
     };
 
     const handlePointerMove = (e: PointerEvent) => {
-      if (e.pointerType === "touch") return;
+      if (e.pointerType === "touch") {
+        hideCursorForTouch();
+        return;
+      }
       updatePosition(e.clientX, e.clientY, e.target);
     };
 
@@ -129,11 +152,13 @@ export function BrandCursor() {
     };
 
     const handleMouseDown = () => {
+      if (isMobileOrTouchDevice() || Date.now() - lastTouchTime < 800) return;
       isPressed = true;
       applyVisualState();
     };
 
     const handleMouseUp = () => {
+      if (isMobileOrTouchDevice() || Date.now() - lastTouchTime < 800) return;
       isPressed = false;
       applyVisualState();
     };
@@ -146,6 +171,7 @@ export function BrandCursor() {
       document.documentElement.classList.remove("custom-cursor-active");
     };
 
+    window.addEventListener("touchstart", hideCursorForTouch, { passive: true });
     window.addEventListener("pointermove", handlePointerMove, { passive: true });
     window.addEventListener("mousemove", handleMouseMove, { passive: true });
     window.addEventListener("mouseover", handleMouseOver, { passive: true });
@@ -154,6 +180,7 @@ export function BrandCursor() {
     document.addEventListener("mouseleave", handleMouseLeave);
 
     return () => {
+      window.removeEventListener("touchstart", hideCursorForTouch);
       window.removeEventListener("pointermove", handlePointerMove);
       window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("mouseover", handleMouseOver);

@@ -133,14 +133,24 @@ export function UnifiedPageCanvas() {
       scheduleUpdate(e.clientX, e.clientY);
     };
 
+    const handleTouch = (e: TouchEvent) => {
+      if (e.touches && e.touches[0]) {
+        scheduleUpdate(e.touches[0].clientX, e.touches[0].clientY);
+      }
+    };
+
     window.addEventListener("pointermove", handlePointerMove, { passive: true });
     window.addEventListener("mousemove", handleMouseMove, { passive: true });
     window.addEventListener("mouseover", handleMouseOver, { passive: true });
+    window.addEventListener("touchstart", handleTouch, { passive: true });
+    window.addEventListener("touchmove", handleTouch, { passive: true });
 
     return () => {
       window.removeEventListener("pointermove", handlePointerMove);
       window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("mouseover", handleMouseOver);
+      window.removeEventListener("touchstart", handleTouch);
+      window.removeEventListener("touchmove", handleTouch);
       if (rafId !== null) cancelAnimationFrame(rafId);
     };
   }, []);
