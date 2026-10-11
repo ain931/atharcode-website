@@ -314,19 +314,25 @@ export function HeroSection({ locale, onSelectService }: HeroSectionProps) {
                             <span className="ml-2 text-[10px] text-[#A4AC86] font-mono">athar ~ main</span>
                           </div>
                           {/* Terminal body */}
-                          <div className="p-3 font-mono text-[10px] space-y-1 text-[#EBE3D2]/90">
+                          <div className="p-3 font-mono text-[10px] space-y-1 text-[#EBE3D2]/90" dir="ltr">
                             <p><span className="text-[#A4AC86]">$</span> <span className="text-[#79c0ff]">git</span> <span className="text-[#ffa657]">init</span> <span className="text-[#EBE3D2]/60">athar-platform</span></p>
-                            <p className="text-emerald-400 pl-2">✓ Initialized empty repo</p>
+                            <p className="text-emerald-400 pl-2">
+                              ✓ {locale === "ar" ? "تهيئة المستودع بنجاح" : "Initialized empty repo"}
+                            </p>
                             <p className="mt-1"><span className="text-[#A4AC86]">$</span> <span className="text-[#79c0ff]">npm</span> <span className="text-[#ffa657]">install</span></p>
                             <div className="pl-2 space-y-0.5">
-                              <p className="text-[#EBE3D2]/50">added 847 packages</p>
-                              <p className="text-emerald-400">✓ ready in 2.1s</p>
+                              <p className="text-[#EBE3D2]/50">
+                                {locale === "ar" ? "تثبيت 847 حزمة..." : "added 847 packages"}
+                              </p>
+                              <p className="text-emerald-400">
+                                ✓ {locale === "ar" ? "جاهز خلال 2.1s" : "ready in 2.1s"}
+                              </p>
                             </div>
                             <p className="mt-1"><span className="text-[#A4AC86]">$</span> <span className="text-[#79c0ff]">npm</span> <span className="text-[#ffa657]">run</span> <span className="text-[#EBE3D2]/80">build</span></p>
                             <div className="pl-2 space-y-0.5">
-                              <p className="text-[#A4AC86]">▲ Next.js 15 — Compiling…</p>
+                              <p className="text-[#A4AC86]">▲ Next.js 15 — {locale === "ar" ? "جارٍ التجميع…" : "Compiling…"}</p>
                               <p className="text-emerald-400 flex items-center gap-1">
-                                ✓ <span className="animate-pulse">Deploy ready</span>
+                                ✓ <span className="animate-pulse">{locale === "ar" ? "جاهز للنشر" : "Deploy ready"}</span>
                                 <span className="inline-block w-1 h-3 bg-emerald-400 animate-[blink_1s_step-end_infinite]" />
                               </p>
                             </div>
@@ -338,16 +344,21 @@ export function HeroSection({ locale, onSelectService }: HeroSectionProps) {
                       {tab.visual === "workflow" && (
                         <div className="w-full max-w-xs p-4 rounded-xl bg-black/25 border border-white/10">
                           <div className="flex items-center justify-between text-[10px] text-[#A4AC86] mb-3">
-                            <span className="flex items-center gap-1.5 font-mono"><Workflow className="w-3 h-3" /> Odoo Business Flow</span>
-                            <span className="text-emerald-400">● Live</span>
+                            <span className="flex items-center gap-1.5 font-mono">
+                              <Workflow className="w-3 h-3" />
+                              {locale === "ar" ? "تدفق عمليات أودو" : "Odoo Business Flow"}
+                            </span>
+                            <span className="text-emerald-400">
+                              ● {locale === "ar" ? "مباشر" : "Live"}
+                            </span>
                           </div>
                           {/* Flow nodes */}
                           <div className="flex flex-col items-center gap-0">
                             {[
-                              { label: "طلب عرض سعر", en: "Quotation", color: "#A4AC86" },
-                              { label: "أمر البيع", en: "Sales Order", color: "#A4AC86" },
-                              { label: "التوريد والمخزون", en: "Inventory", color: "#A4AC86" },
-                              { label: "الفوترة والدفع", en: "Invoice & Pay", color: "#EBE3D2" },
+                              { label: "طلب عرض سعر", en: "Quotation",      color: "#A4AC86" },
+                              { label: "أمر البيع",    en: "Sales Order",    color: "#A4AC86" },
+                              { label: "التوريد والمخزون", en: "Inventory",  color: "#A4AC86" },
+                              { label: "الفوترة والدفع",  en: "Invoice & Pay", color: "#EBE3D2" },
                             ].map((node, i) => (
                               <React.Fragment key={i}>
                                 <div
@@ -378,7 +389,6 @@ export function HeroSection({ locale, onSelectService }: HeroSectionProps) {
                           {/* horizon grid */}
                           <div className="absolute inset-x-0 bottom-0 h-16 pointer-events-none"
                             style={{
-                              background: "linear-gradient(to top, rgba(164,172,134,0.12) 0%, transparent 100%)",
                               backgroundImage: `
                                 linear-gradient(to top, rgba(164,172,134,0.12) 0%, transparent 100%),
                                 repeating-linear-gradient(90deg, rgba(164,172,134,0.15) 0px, rgba(164,172,134,0.15) 1px, transparent 1px, transparent 28px),
@@ -390,10 +400,12 @@ export function HeroSection({ locale, onSelectService }: HeroSectionProps) {
                           <div className="relative z-10 p-3 flex flex-col gap-2">
                             <div className="flex items-center justify-between text-[10px] font-mono text-[#A4AC86]">
                               <span>VR://scene.load</span>
-                              <span className="text-emerald-400 animate-pulse">● REC</span>
+                              <span className="text-emerald-400 animate-pulse">
+                                ● {locale === "ar" ? "تسجيل" : "REC"}
+                              </span>
                             </div>
                             <div className="flex items-center justify-center gap-5 py-3">
-                              {/* Octahedron wireframe hint */}
+                              {/* Octahedron wireframe */}
                               <svg width="52" height="52" viewBox="0 0 52 52" fill="none" className="animate-[spin_16s_linear_infinite]">
                                 <polygon points="26,4 48,38 4,38" stroke="#A4AC86" strokeWidth="1" fill="rgba(164,172,134,0.05)" />
                                 <polygon points="26,48 48,14 4,14" stroke="#A4AC86" strokeWidth="0.5" strokeDasharray="3 3" fill="none" />
@@ -420,20 +432,23 @@ export function HeroSection({ locale, onSelectService }: HeroSectionProps) {
                       {tab.visual === "growth" && (
                         <div className="w-full max-w-xs p-4 rounded-xl bg-black/25 border border-white/10">
                           <div className="flex items-center justify-between text-[10px] text-[#A4AC86] mb-3">
-                            <span className="flex items-center gap-1.5 font-mono"><TrendingUp className="w-3 h-3" /> Marketing Funnel</span>
+                            <span className="flex items-center gap-1.5 font-mono">
+                              <TrendingUp className="w-3 h-3" />
+                              {locale === "ar" ? "قمع التسويق" : "Marketing Funnel"}
+                            </span>
                             <span className="text-emerald-400">↑ 38% ROI</span>
                           </div>
                           {/* Funnel layers */}
                           <div className="flex flex-col items-center gap-1">
                             {[
-                              { label: "الوعي", en: "Awareness", w: "100%", opacity: 0.35, users: "12K" },
-                              { label: "الاهتمام", en: "Interest",  w: "78%",  opacity: 0.5,  users: "9.3K" },
-                              { label: "النية",   en: "Intent",    w: "55%",  opacity: 0.65, users: "6.6K" },
-                              { label: "التحويل", en: "Conversion",w: "32%",  opacity: 0.85, users: "3.8K" },
-                              { label: "الولاء",  en: "Loyalty",   w: "18%",  opacity: 1,    users: "2.1K" },
+                              { label: "الوعي",    en: "Awareness",   w: "100%", opacity: 0.35, users: "12K" },
+                              { label: "الاهتمام", en: "Interest",    w: "78%",  opacity: 0.5,  users: "9.3K" },
+                              { label: "النية",    en: "Intent",      w: "55%",  opacity: 0.65, users: "6.6K" },
+                              { label: "التحويل",  en: "Conversion",  w: "32%",  opacity: 0.85, users: "3.8K" },
+                              { label: "الولاء",   en: "Loyalty",     w: "18%",  opacity: 1,    users: "2.1K" },
                             ].map((layer, i) => (
                               <div key={i} className="flex items-center gap-2 w-full">
-                                <span className="text-[9px] text-[#EBE3D2]/60 w-12 text-end shrink-0">
+                                <span className="text-[9px] text-[#EBE3D2]/60 w-14 shrink-0" style={{ textAlign: isRtl ? "right" : "left" }}>
                                   {locale === "ar" ? layer.label : layer.en}
                                 </span>
                                 <div className="flex-1 flex justify-center">
