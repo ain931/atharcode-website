@@ -100,6 +100,9 @@ export const metadata: Metadata = {
     creator: "@athar_code",
     images: ["/brand/logo-official-dark.png"],
   },
+  verification: {
+    google: "8PH_gDuA-L7GxvepTBQWUgKY9vbMEm3KXWwWFuCVxMY",
+  },
 };
 
 const INSTANT_INTERACTIVITY_SCRIPT = `
