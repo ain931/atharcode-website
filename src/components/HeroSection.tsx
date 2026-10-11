@@ -12,8 +12,6 @@ import {
   TrendingUp,
   ArrowUpRight,
   CheckCircle2,
-  Layers,
-  Cpu,
   Eye,
 } from "lucide-react";
 
@@ -304,97 +302,154 @@ export function HeroSection({ locale, onSelectService }: HeroSectionProps) {
 
                     {/* Animated Diagram / Wireframe (5 cols) */}
                     <div className="md:col-span-5 flex justify-center">
-                      <div className="w-full max-w-xs p-4 rounded-xl bg-black/25 border border-white/15">
-                        {tab.visual === "interactive" && (
-                          <div className="space-y-3">
-                            <div className="flex items-center justify-between text-xs text-[#A4AC86]">
-                              <span className="flex items-center gap-1.5">
-                                <Cpu className="w-3.5 h-3.5" />
-                                <span>Real-time 3D Engine</span>
-                              </span>
-                              <span className="text-[10px] text-emerald-400">60 FPS</span>
+
+                      {/* ── TERMINAL LIVE (code) ── */}
+                      {tab.visual === "code" && (
+                        <div className="w-full max-w-xs rounded-xl bg-[#0d1117] border border-white/10 overflow-hidden shadow-xl">
+                          {/* Terminal chrome bar */}
+                          <div className="flex items-center gap-1.5 px-3 py-2 bg-[#161b22] border-b border-white/10">
+                            <span className="w-2.5 h-2.5 rounded-full bg-[#ff5f57]" />
+                            <span className="w-2.5 h-2.5 rounded-full bg-[#febc2e]" />
+                            <span className="w-2.5 h-2.5 rounded-full bg-[#28c840]" />
+                            <span className="ml-2 text-[10px] text-[#A4AC86] font-mono">athar ~ main</span>
+                          </div>
+                          {/* Terminal body */}
+                          <div className="p-3 font-mono text-[10px] space-y-1 text-[#EBE3D2]/90">
+                            <p><span className="text-[#A4AC86]">$</span> <span className="text-[#79c0ff]">git</span> <span className="text-[#ffa657]">init</span> <span className="text-[#EBE3D2]/60">athar-platform</span></p>
+                            <p className="text-emerald-400 pl-2">✓ Initialized empty repo</p>
+                            <p className="mt-1"><span className="text-[#A4AC86]">$</span> <span className="text-[#79c0ff]">npm</span> <span className="text-[#ffa657]">install</span></p>
+                            <div className="pl-2 space-y-0.5">
+                              <p className="text-[#EBE3D2]/50">added 847 packages</p>
+                              <p className="text-emerald-400">✓ ready in 2.1s</p>
                             </div>
-                            <div className="h-20 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center relative overflow-hidden">
-                              <div className="w-12 h-12 border border-[#A4AC86] rotate-45 animate-spin duration-[12000ms] rounded-md flex items-center justify-center">
-                                <div className="w-6 h-6 border border-[#EBE3D2] -rotate-45 rounded-sm"></div>
-                              </div>
+                            <p className="mt-1"><span className="text-[#A4AC86]">$</span> <span className="text-[#79c0ff]">npm</span> <span className="text-[#ffa657]">run</span> <span className="text-[#EBE3D2]/80">build</span></p>
+                            <div className="pl-2 space-y-0.5">
+                              <p className="text-[#A4AC86]">▲ Next.js 15 — Compiling…</p>
+                              <p className="text-emerald-400 flex items-center gap-1">
+                                ✓ <span className="animate-pulse">Deploy ready</span>
+                                <span className="inline-block w-1 h-3 bg-emerald-400 animate-[blink_1s_step-end_infinite]" />
+                              </p>
                             </div>
-                            <p
-                              data-ar="برمجيات تفاعلية (شاشات، محاكاة وواقع معزز)"
-                              data-en="Interactive software & simulator engine"
-                              className="text-[11px] text-[#EBE3D2]/75 text-center"
-                            >
-                              {locale === "ar"
-                                ? "برمجيات تفاعلية (شاشات، محاكاة وواقع معزز)"
-                                : "Interactive software & simulator engine"}
+                          </div>
+                        </div>
+                      )}
+
+                      {/* ── ODOO WORKFLOW FLOW (workflow) ── */}
+                      {tab.visual === "workflow" && (
+                        <div className="w-full max-w-xs p-4 rounded-xl bg-black/25 border border-white/10">
+                          <div className="flex items-center justify-between text-[10px] text-[#A4AC86] mb-3">
+                            <span className="flex items-center gap-1.5 font-mono"><Workflow className="w-3 h-3" /> Odoo Business Flow</span>
+                            <span className="text-emerald-400">● Live</span>
+                          </div>
+                          {/* Flow nodes */}
+                          <div className="flex flex-col items-center gap-0">
+                            {[
+                              { label: "طلب عرض سعر", en: "Quotation", color: "#A4AC86" },
+                              { label: "أمر البيع", en: "Sales Order", color: "#A4AC86" },
+                              { label: "التوريد والمخزون", en: "Inventory", color: "#A4AC86" },
+                              { label: "الفوترة والدفع", en: "Invoice & Pay", color: "#EBE3D2" },
+                            ].map((node, i) => (
+                              <React.Fragment key={i}>
+                                <div
+                                  className="w-full px-3 py-1.5 rounded-lg border text-[10px] font-mono flex items-center justify-between"
+                                  style={{ background: "rgba(255,255,255,0.07)", borderColor: `${node.color}40` }}
+                                >
+                                  <span style={{ color: node.color }}>{locale === "ar" ? node.label : node.en}</span>
+                                  <CheckCircle2 className="w-3 h-3 text-emerald-400" />
+                                </div>
+                                {i < 3 && (
+                                  <div className="flex flex-col items-center my-0.5">
+                                    <div className="w-px h-3 bg-[#A4AC86]/40" />
+                                    <div className="w-1.5 h-1.5 rounded-full bg-[#A4AC86]/60" />
+                                  </div>
+                                )}
+                              </React.Fragment>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+
+                      {/* ── VR SCENE GEOMETRIC (interactive) ── */}
+                      {tab.visual === "interactive" && (
+                        <div className="w-full max-w-xs rounded-xl bg-[#0a0f0a] border border-[#A4AC86]/20 overflow-hidden relative" style={{ minHeight: 140 }}>
+                          {/* scan-line overlay */}
+                          <div className="absolute inset-0 pointer-events-none"
+                            style={{ background: "repeating-linear-gradient(to bottom, transparent, transparent 3px, rgba(164,172,134,0.03) 4px)" }} />
+                          {/* horizon grid */}
+                          <div className="absolute inset-x-0 bottom-0 h-16 pointer-events-none"
+                            style={{
+                              background: "linear-gradient(to top, rgba(164,172,134,0.12) 0%, transparent 100%)",
+                              backgroundImage: `
+                                linear-gradient(to top, rgba(164,172,134,0.12) 0%, transparent 100%),
+                                repeating-linear-gradient(90deg, rgba(164,172,134,0.15) 0px, rgba(164,172,134,0.15) 1px, transparent 1px, transparent 28px),
+                                repeating-linear-gradient(0deg, rgba(164,172,134,0.15) 0px, rgba(164,172,134,0.15) 1px, transparent 1px, transparent 14px)
+                              `,
+                            }}
+                          />
+                          {/* floating geometric shapes */}
+                          <div className="relative z-10 p-3 flex flex-col gap-2">
+                            <div className="flex items-center justify-between text-[10px] font-mono text-[#A4AC86]">
+                              <span>VR://scene.load</span>
+                              <span className="text-emerald-400 animate-pulse">● REC</span>
+                            </div>
+                            <div className="flex items-center justify-center gap-5 py-3">
+                              {/* Octahedron wireframe hint */}
+                              <svg width="52" height="52" viewBox="0 0 52 52" fill="none" className="animate-[spin_16s_linear_infinite]">
+                                <polygon points="26,4 48,38 4,38" stroke="#A4AC86" strokeWidth="1" fill="rgba(164,172,134,0.05)" />
+                                <polygon points="26,48 48,14 4,14" stroke="#A4AC86" strokeWidth="0.5" strokeDasharray="3 3" fill="none" />
+                                <circle cx="26" cy="26" r="2" fill="#EBE3D2" />
+                              </svg>
+                              {/* Cube wireframe */}
+                              <svg width="44" height="44" viewBox="0 0 44 44" fill="none" className="animate-[spin_10s_linear_infinite_reverse]">
+                                <rect x="6" y="12" width="24" height="24" stroke="#EBE3D2" strokeWidth="1" fill="rgba(235,227,210,0.04)" />
+                                <rect x="14" y="6" width="24" height="24" stroke="#A4AC86" strokeWidth="0.7" strokeDasharray="2 2" fill="none" />
+                                <line x1="6" y1="12" x2="14" y2="6" stroke="#A4AC86" strokeWidth="0.7" />
+                                <line x1="30" y1="12" x2="38" y2="6" stroke="#A4AC86" strokeWidth="0.7" />
+                                <line x1="30" y1="36" x2="38" y2="30" stroke="#A4AC86" strokeWidth="0.7" />
+                                <line x1="6" y1="36" x2="14" y2="30" stroke="#A4AC86" strokeWidth="0.7" />
+                              </svg>
+                            </div>
+                            <p className="text-[10px] text-[#A4AC86]/70 font-mono text-center">
+                              {locale === "ar" ? "بيئة واقع افتراضي ثلاثية الأبعاد" : "Real-time 3D VR environment"}
                             </p>
                           </div>
-                        )}
+                        </div>
+                      )}
 
-                        {tab.visual === "workflow" && (
-                          <div className="space-y-2.5">
-                            <div className="flex items-center justify-between text-xs text-[#A4AC86]">
-                              <span className="flex items-center gap-1.5">
-                                <Workflow className="w-3.5 h-3.5" />
-                                <span>Odoo Automation</span>
-                              </span>
-                              <span className="text-[10px] text-emerald-400">Synced</span>
-                            </div>
-                            <div className="space-y-1.5 text-[11px]">
-                              <div className="p-1.5 rounded bg-white/10 flex items-center justify-between">
-                                <span>Inventory & Sales</span>
-                                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
+                      {/* ── MARKETING FUNNEL DIAGRAM (growth) ── */}
+                      {tab.visual === "growth" && (
+                        <div className="w-full max-w-xs p-4 rounded-xl bg-black/25 border border-white/10">
+                          <div className="flex items-center justify-between text-[10px] text-[#A4AC86] mb-3">
+                            <span className="flex items-center gap-1.5 font-mono"><TrendingUp className="w-3 h-3" /> Marketing Funnel</span>
+                            <span className="text-emerald-400">↑ 38% ROI</span>
+                          </div>
+                          {/* Funnel layers */}
+                          <div className="flex flex-col items-center gap-1">
+                            {[
+                              { label: "الوعي", en: "Awareness", w: "100%", opacity: 0.35, users: "12K" },
+                              { label: "الاهتمام", en: "Interest",  w: "78%",  opacity: 0.5,  users: "9.3K" },
+                              { label: "النية",   en: "Intent",    w: "55%",  opacity: 0.65, users: "6.6K" },
+                              { label: "التحويل", en: "Conversion",w: "32%",  opacity: 0.85, users: "3.8K" },
+                              { label: "الولاء",  en: "Loyalty",   w: "18%",  opacity: 1,    users: "2.1K" },
+                            ].map((layer, i) => (
+                              <div key={i} className="flex items-center gap-2 w-full">
+                                <span className="text-[9px] text-[#EBE3D2]/60 w-12 text-end shrink-0">
+                                  {locale === "ar" ? layer.label : layer.en}
+                                </span>
+                                <div className="flex-1 flex justify-center">
+                                  <div
+                                    className="h-5 rounded flex items-center justify-center"
+                                    style={{ width: layer.w, background: `rgba(164,172,134,${layer.opacity})` }}
+                                  >
+                                    <span className="text-[9px] font-mono text-[#0d1117] font-bold">{layer.users}</span>
+                                  </div>
+                                </div>
                               </div>
-                              <div className="p-1.5 rounded bg-white/10 flex items-center justify-between">
-                                <span>Finance & Accounting</span>
-                                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
-                              </div>
-                            </div>
+                            ))}
                           </div>
-                        )}
+                        </div>
+                      )}
 
-                        {tab.visual === "code" && (
-                          <div className="space-y-2">
-                            <div className="flex items-center justify-between text-xs text-[#A4AC86]">
-                              <span className="flex items-center gap-1.5">
-                                <Layers className="w-3.5 h-3.5" />
-                                <span>Modern Stack</span>
-                              </span>
-                              <span className="text-[10px] text-emerald-400">Next.js + APIs</span>
-                            </div>
-                            <div className="p-2.5 rounded-lg bg-white/5 font-mono text-[10px] text-[#EBE3D2]/85 space-y-1">
-                              <p className="text-[#A4AC86]">{">"} architecture: scalable</p>
-                              <p>{">"} security: enterprise</p>
-                              <p>{">"} status: operational</p>
-                            </div>
-                          </div>
-                        )}
-
-                        {tab.visual === "growth" && (
-                          <div className="space-y-2.5">
-                            <div className="flex items-center justify-between text-xs text-[#A4AC86]">
-                              <span className="flex items-center gap-1.5">
-                                <TrendingUp className="w-3.5 h-3.5" />
-                                <span>Growth Funnel</span>
-                              </span>
-                              <span className="text-[10px] text-emerald-400">Optimized</span>
-                            </div>
-                            <div className="h-16 flex items-end gap-1.5 pt-2">
-                              <div className="w-1/4 h-[40%] bg-[#A4AC86]/50 rounded-t"></div>
-                              <div className="w-1/4 h-[65%] bg-[#A4AC86]/70 rounded-t"></div>
-                              <div className="w-1/4 h-[85%] bg-[#A4AC86] rounded-t"></div>
-                              <div className="w-1/4 h-[100%] bg-[#EBE3D2] rounded-t"></div>
-                            </div>
-                            <p
-                              data-ar="حملات موجهة وعائد نمو مستدام"
-                              data-en="Data-driven ROI campaigns"
-                              className="text-[11px] text-[#EBE3D2]/75 text-center"
-                            >
-                              {locale === "ar" ? "حملات موجهة وعائد نمو مستدام" : "Data-driven ROI campaigns"}
-                            </p>
-                          </div>
-                        )}
-                      </div>
                     </div>
                   </div>
                 );

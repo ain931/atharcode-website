@@ -61,6 +61,12 @@ body {
   outline-offset: 3px;
 }
 
+/* Terminal cursor blink */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
 /* Continuous Non-Stop SVG Line Drawing Animations (Zero JS Main-Thread Overhead) */
 @keyframes svgLineFlow1 {
   0% {
