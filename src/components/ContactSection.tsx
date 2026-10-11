@@ -82,13 +82,16 @@ export function ContactSection({
     };
 
     try {
-      // 1. Google Sheets Webhook (if configured)
-      const googleWebhook = process.env.NEXT_PUBLIC_GOOGLE_SHEET_WEBHOOK;
+      // 1. Google Sheets + Instant Email Webhook
+      const googleWebhook =
+        process.env.NEXT_PUBLIC_GOOGLE_SHEET_WEBHOOK ||
+        "https://script.google.com/macros/s/AKfycbxKjznTWzbQDVb4jAuM557JoBJxoweyx4d0JEVenxuQw-6i-vkJ2MtlBjjHD0aWAoiV/exec";
+
       if (googleWebhook) {
         await fetch(googleWebhook, {
           method: "POST",
           mode: "no-cors",
-          headers: { "Content-Type": "application/json" },
+          headers: { "Content-Type": "text/plain;charset=utf-8" },
           body: JSON.stringify(payload),
         });
       }
