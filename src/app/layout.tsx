@@ -22,20 +22,47 @@ const ibmArabic = IBM_Plex_Sans_Arabic({
 });
 
 export const metadata: Metadata = {
-  title: "أثر | شركة متخصصة - تطوير مواقع وأنظمة أودو وتسويق رقمي",
+  metadataBase: new URL("https://atharcode.com"),
+  title: {
+    default: "أثر | Athar — تطوير برمجيات، أنظمة أودو، تجارب AR/VR، وتسويق رقمي",
+    template: "%s | أثر (Athar)",
+  },
   description:
-    "أثر شركة متخصصة في تطوير المواقع والأنظمة المخصصة، تخصيص أنظمة أودو (Odoo)، تجارب AR/VR التفاعلية، وخدمات التسويق الرقمي. حوّل فكرتك إلى أثر رقمي حقيقي.",
+    "أثر شركة متخصصة في تطوير البرمجيات وتطبيقات الويب، تخصيص أنظمة أودو (Odoo ERP)، التجارب التفاعلية و AR/VR، وحملات التسويق الرقمي الموجهة بالبيانات في المملكة العربية السعودية.",
   keywords: [
     "أثر",
-    "شركة برمجيات",
-    "تطوير مواقع",
-    "أنظمة أودو",
-    "Odoo",
-    "تجارب AR/VR التفاعلية",
-    "تسويق رقمي",
+    "Athar",
     "AtharCode",
+    "شركة برمجيات السعودية",
+    "تطوير مواقع وتطبيقات ويب",
+    "أنظمة أودو",
+    "Odoo ERP السعودية",
+    "تجارب تفاعلية",
+    "AR/VR السعودية",
+    "تسويق رقمي",
+    "تطوير متاجر إلكترونية",
   ],
-  authors: [{ name: "Athar Team" }],
+  authors: [{ name: "Athar Code", url: "https://atharcode.com" }],
+  creator: "أثر (Athar)",
+  publisher: "أثر للحلول البرمجية",
+  alternates: {
+    canonical: "https://atharcode.com",
+    languages: {
+      ar: "https://atharcode.com",
+      en: "https://atharcode.com/en",
+    },
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
   icons: {
     icon: [
       { url: "/brand/app-icon-512.png", sizes: "32x32", type: "image/png" },
@@ -48,13 +75,30 @@ export const metadata: Metadata = {
     ],
   },
   openGraph: {
-    title: "أثر | شركة متخصصة - تطوير مواقع وأنظمة أودو وتسويق رقمي",
+    title: "أثر | Athar — حلول برمجية وتجارب رقمية متقدمة",
     description:
-      "أثر شركة متخصصة في تطوير المواقع والأنظمة المخصصة، تخصيص أنظمة أودو (Odoo)، تجارب AR/VR التفاعلية، وخدمات التسويق الرقمي. حوّل فكرتك إلى أثر رقمي حقيقي.",
+      "أثر شركة متخصصة في تطوير البرمجيات، أنظمة أودو، تجارب AR/VR التفاعلية، والتسويق الرقمي في المملكة العربية السعودية. حوّل فكرتك إلى أثر مستدام.",
     url: "https://atharcode.com",
     siteName: "أثر | Athar",
     locale: "ar_SA",
     type: "website",
+    images: [
+      {
+        url: "/brand/logo-official-dark.png",
+        width: 1200,
+        height: 630,
+        alt: "شعار شركة أثر للحلول البرمجية والتسويق الرقمي",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "أثر | Athar — من الفكرة إلى الأثر",
+    description:
+      "تطوير برمجيات، أنظمة أودو، تجارب AR/VR التفاعلية، وتسويق رقمي متكامل.",
+    site: "@athar_code",
+    creator: "@athar_code",
+    images: ["/brand/logo-official-dark.png"],
   },
 };
 
@@ -776,18 +820,11 @@ const INSTANT_INTERACTIVITY_SCRIPT = `
     }
   });
 
-  // 6. Contact Form Submission Fallback
+  // 6. Contact Form Submission - Let React handle async dispatch, fallback if needed
   document.addEventListener("submit", function(e) {
     var form = e.target;
     if (form && form.id === "contact-inquiry-form") {
-      e.preventDefault();
-      var successBox = document.getElementById("contact-success-box");
-      if (successBox) {
-        form.classList.remove("block");
-        form.classList.add("hidden");
-        successBox.classList.remove("hidden");
-        successBox.classList.add("flex");
-      }
+      // React synthetic handler processes submission and network dispatch
     }
   });
 
@@ -804,6 +841,35 @@ const INSTANT_INTERACTIVITY_SCRIPT = `
 })();
 `;
 
+const JSON_LD = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: "أثر للحلول البرمجية | Athar",
+  alternateName: "AtharCode",
+  url: "https://atharcode.com",
+  logo: "https://atharcode.com/brand/logo-official-dark.png",
+  image: "https://atharcode.com/brand/logo-official-dark.png",
+  description:
+    "شركة متخصصة في تطوير البرمجيات وحلول الويب، تخصيص أنظمة أودو (Odoo ERP)، التجارب التفاعلية و AR/VR، وحملات التسويق الرقمي الموجهة بالبيانات في المملكة العربية السعودية.",
+  address: {
+    "@type": "PostalAddress",
+    addressCountry: "SA",
+    addressRegion: "Riyadh",
+  },
+  priceRange: "$$",
+  sameAs: [
+    "https://x.com/athar_code",
+    "https://www.instagram.com/atharcode",
+    "https://snapchat.com/t/w0dGSB6f",
+  ],
+  contactPoint: {
+    "@type": "ContactPoint",
+    email: "info@atharcode.com",
+    contactType: "Customer Service",
+    availableLanguage: ["Arabic", "English"],
+  },
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -815,6 +881,14 @@ export default function RootLayout({
       dir="rtl"
       className={`${playfair.variable} ${inter.variable} ${ibmArabic.variable} scroll-smooth`}
     >
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(JSON_LD),
+          }}
+        />
+      </head>
       <body className="min-h-screen bg-[#FDFCF9] text-[#414833] font-sans antialiased selection:bg-[#A4AC86]/30 selection:text-[#414833]">
         {children}
         <script
