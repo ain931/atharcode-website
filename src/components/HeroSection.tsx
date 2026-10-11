@@ -339,8 +339,13 @@ export function HeroSection({ locale, onSelectService }: HeroSectionProps) {
                         <div className="w-full max-w-xs p-4 rounded-xl bg-black/25 border border-white/10">
                           <div className="flex items-center text-[10px] text-[#A4AC86] mb-3">
                             <span className="flex items-center gap-1.5 font-mono">
-                              <Workflow className="w-3 h-3" />
-                              {locale === "ar" ? "تدفق عمليات أودو" : "Odoo Business Flow"}
+                              <Workflow className="w-3 h-3 shrink-0" />
+                              <span
+                                data-ar="تدفق عمليات أودو"
+                                data-en="Odoo Business Flow"
+                              >
+                                {locale === "ar" ? "تدفق عمليات أودو" : "Odoo Business Flow"}
+                              </span>
                             </span>
                           </div>
                           {/* Flow nodes */}
@@ -356,8 +361,14 @@ export function HeroSection({ locale, onSelectService }: HeroSectionProps) {
                                   className="w-full px-3 py-1.5 rounded-lg border text-[10px] font-mono flex items-center justify-between"
                                   style={{ background: "rgba(255,255,255,0.07)", borderColor: `${node.color}40` }}
                                 >
-                                  <span style={{ color: node.color }}>{locale === "ar" ? node.label : node.en}</span>
-                                  <CheckCircle2 className="w-3 h-3 text-emerald-400" />
+                                  <span
+                                    style={{ color: node.color }}
+                                    data-ar={node.label}
+                                    data-en={node.en}
+                                  >
+                                    {locale === "ar" ? node.label : node.en}
+                                  </span>
+                                  <CheckCircle2 className="w-3 h-3 text-emerald-400 shrink-0" />
                                 </div>
                                 {i < 3 && (
                                   <div className="flex flex-col items-center my-0.5">
@@ -409,7 +420,11 @@ export function HeroSection({ locale, onSelectService }: HeroSectionProps) {
                                 <line x1="6" y1="36" x2="14" y2="30" stroke="#A4AC86" strokeWidth="0.7" />
                               </svg>
                             </div>
-                            <p className="text-[10px] text-[#A4AC86]/70 font-mono text-center">
+                            <p
+                              data-ar="بيئة واقع افتراضي ثلاثية الأبعاد"
+                              data-en="Real-time 3D VR environment"
+                              className="text-[10px] text-[#A4AC86]/70 font-mono text-center"
+                            >
                               {locale === "ar" ? "بيئة واقع افتراضي ثلاثية الأبعاد" : "Real-time 3D VR environment"}
                             </p>
                           </div>
@@ -421,8 +436,13 @@ export function HeroSection({ locale, onSelectService }: HeroSectionProps) {
                         <div className="w-full max-w-xs p-4 rounded-xl bg-black/25 border border-white/10">
                           <div className="flex items-center justify-between text-[10px] text-[#A4AC86] mb-3">
                             <span className="flex items-center gap-1.5 font-mono">
-                              <TrendingUp className="w-3 h-3" />
-                              {locale === "ar" ? "قمع التسويق" : "Marketing Funnel"}
+                              <TrendingUp className="w-3 h-3 shrink-0" />
+                              <span
+                                data-ar="قمع التسويق"
+                                data-en="Marketing Funnel"
+                              >
+                                {locale === "ar" ? "قمع التسويق" : "Marketing Funnel"}
+                              </span>
                             </span>
                             <span className="text-emerald-400">↑ 38% ROI</span>
                           </div>
@@ -436,7 +456,12 @@ export function HeroSection({ locale, onSelectService }: HeroSectionProps) {
                               { label: "الولاء",   en: "Loyalty",     w: "18%",  opacity: 1,    users: "2.1K" },
                             ].map((layer, i) => (
                               <div key={i} className="flex items-center gap-2 w-full">
-                                <span className="text-[9px] text-[#EBE3D2]/60 w-14 shrink-0" style={{ textAlign: isRtl ? "right" : "left" }}>
+                                <span
+                                  data-ar={layer.label}
+                                  data-en={layer.en}
+                                  className="text-[9px] text-[#EBE3D2]/60 w-16 shrink-0"
+                                  style={{ textAlign: isRtl ? "right" : "left" }}
+                                >
                                   {locale === "ar" ? layer.label : layer.en}
                                 </span>
                                 <div className="flex-1 flex justify-center">
