@@ -82,7 +82,7 @@ export function ContactSection({
     };
 
     try {
-      // 1. Google Sheets + Instant Email Webhook
+      // 1. Google Sheets Webhook + Instant Email
       const googleWebhook =
         process.env.NEXT_PUBLIC_GOOGLE_SHEET_WEBHOOK ||
         "https://script.google.com/macros/s/AKfycbxKjznTWzbQDVb4jAuM557JoBJxoweyx4d0JEVenxuQw-6i-vkJ2MtlBjjHD0aWAoiV/exec";
