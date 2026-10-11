@@ -343,13 +343,10 @@ export function HeroSection({ locale, onSelectService }: HeroSectionProps) {
                       {/* ── ODOO WORKFLOW FLOW (workflow) ── */}
                       {tab.visual === "workflow" && (
                         <div className="w-full max-w-xs p-4 rounded-xl bg-black/25 border border-white/10">
-                          <div className="flex items-center justify-between text-[10px] text-[#A4AC86] mb-3">
+                          <div className="flex items-center text-[10px] text-[#A4AC86] mb-3">
                             <span className="flex items-center gap-1.5 font-mono">
                               <Workflow className="w-3 h-3" />
                               {locale === "ar" ? "تدفق عمليات أودو" : "Odoo Business Flow"}
-                            </span>
-                            <span className="text-emerald-400">
-                              ● {locale === "ar" ? "مباشر" : "Live"}
                             </span>
                           </div>
                           {/* Flow nodes */}
@@ -398,11 +395,8 @@ export function HeroSection({ locale, onSelectService }: HeroSectionProps) {
                           />
                           {/* floating geometric shapes */}
                           <div className="relative z-10 p-3 flex flex-col gap-2">
-                            <div className="flex items-center justify-between text-[10px] font-mono text-[#A4AC86]">
+                            <div className="flex items-center text-[10px] font-mono text-[#A4AC86]">
                               <span>VR://scene.load</span>
-                              <span className="text-emerald-400 animate-pulse">
-                                ● {locale === "ar" ? "تسجيل" : "REC"}
-                              </span>
                             </div>
                             <div className="flex items-center justify-center gap-5 py-3">
                               {/* Octahedron wireframe */}
