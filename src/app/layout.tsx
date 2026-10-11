@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Script from "next/script";
 import { Playfair_Display, Inter, IBM_Plex_Sans_Arabic } from "next/font/google";
 import "./globals.css";
 
@@ -912,14 +911,6 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: INSTANT_INTERACTIVITY_SCRIPT,
           }}
-        />
-        {/* Gabster AI Chatbot Widget */}
-        <Script
-          id="gabster-chat-widget"
-          src="https://widget.gabster.ai/loader?cbid=6acbbe2cd0a6676e84920179"
-          data-gabster-widget=""
-          data-embed-type="widget"
-          strategy="afterInteractive"
         />
       </body>
     </html>
