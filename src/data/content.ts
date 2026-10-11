@@ -680,20 +680,30 @@ export const PHILOSOPHY_PILLARS: PhilosophyPillar[] = [
   },
 ];
 
-export const companyCity: string | null = null; // TODO: يحدَّد لاحقاً لدعم SEO المحلي
+export const companyCity = "الرياض";
 
 export const CONTACT_INFO = {
   email: "info@atharcode.com",
   website: "www.atharcode.com",
+  whatsapp: "https://wa.me/message/D5NDE43SNLMZO1",
   socialHandle: "@atharcode",
   socials: {
+    whatsapp: "https://wa.me/message/D5NDE43SNLMZO1",
     instagram: "https://www.instagram.com/atharcode?exln=aHFqdG5hMzN2dHg=",
     snapchat: "https://snapchat.com/t/w0dGSB6f",
     x: "https://x.com/athar_code?s=11",
   },
+  branches: [
+    {
+      city: { ar: "الرياض، المملكة العربية السعودية", en: "Riyadh, Saudi Arabia" },
+    },
+    {
+      city: { ar: "مجمع أركان، الشيخ زايد، الجيزة، مصر", en: "Arkan Plaza, Sheikh Zayed, Giza, Egypt" },
+    },
+  ],
   companyCity,
   locationPlaceholder: {
-    ar: companyCity ?? "{{companyCity}} — TODO: يحدَّد لاحقاً لدعم SEO المحلي",
-    en: companyCity ?? "{{companyCity}} — TODO: To be defined for local SEO",
+    ar: "الرياض، السعودية • مجمع أركان، الشيخ زايد، مصر",
+    en: "Riyadh, Saudi Arabia • Arkan Plaza, Sheikh Zayed, Egypt",
   },
 };

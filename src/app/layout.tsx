@@ -851,23 +851,39 @@ const JSON_LD = {
   image: "https://atharcode.com/brand/logo-official-dark.png",
   description:
     "شركة متخصصة في تطوير البرمجيات وحلول الويب، تخصيص أنظمة أودو (Odoo ERP)، التجارب التفاعلية و AR/VR، وحملات التسويق الرقمي الموجهة بالبيانات في المملكة العربية السعودية.",
-  address: {
-    "@type": "PostalAddress",
-    addressCountry: "SA",
-    addressRegion: "Riyadh",
-  },
+  address: [
+    {
+      "@type": "PostalAddress",
+      addressCountry: "SA",
+      addressRegion: "Riyadh",
+      streetAddress: "الرياض",
+      addressLocality: "الرياض، المملكة العربية السعودية",
+    },
+    {
+      "@type": "PostalAddress",
+      addressCountry: "EG",
+      addressRegion: "Giza",
+      streetAddress: "مجمع أركان، الشيخ زايد",
+      addressLocality: "مجمع أركان، الشيخ زايد، الجيزة، مصر",
+    },
+  ],
   priceRange: "$$",
   sameAs: [
     "https://x.com/athar_code",
     "https://www.instagram.com/atharcode",
     "https://snapchat.com/t/w0dGSB6f",
+    "https://wa.me/message/D5NDE43SNLMZO1",
   ],
-  contactPoint: {
-    "@type": "ContactPoint",
-    email: "info@atharcode.com",
-    contactType: "Customer Service",
-    availableLanguage: ["Arabic", "English"],
-  },
+  contactPoint: [
+    {
+      "@type": "ContactPoint",
+      telephone: "+966",
+      url: "https://wa.me/message/D5NDE43SNLMZO1",
+      email: "info@atharcode.com",
+      contactType: "Customer Support & Inquiries",
+      availableLanguage: ["Arabic", "English"],
+    },
+  ],
 };
 
 export default function RootLayout({
