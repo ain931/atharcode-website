@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
 import {
   PROJECTS,
   PROJECT_CATEGORIES,
@@ -24,6 +25,8 @@ import {
   Layers,
 } from "lucide-react";
 
+const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
 interface PortfolioSectionProps {
   locale: Locale;
   onSelectService?: (serviceId: string) => void;
@@ -31,10 +34,41 @@ interface PortfolioSectionProps {
 
 function ProjectVisualPreview({
   visualType,
+  image,
+  alt,
 }: {
   visualType: ProjectItem["visualType"];
+  image?: string;
+  alt?: string;
   locale: Locale;
 }) {
+  const resolvedImage = image
+    ? image.startsWith("http")
+      ? image
+      : `${BASE_PATH}${image}`
+    : null;
+
+  if (resolvedImage) {
+    return (
+      <div className="relative h-48 sm:h-56 w-full bg-[#21251a] overflow-hidden select-none">
+        <Image
+          src={resolvedImage}
+          alt={alt || "Project showcase"}
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+        />
+        {/* Subtle Olive Brand Gradient Overlay for seamless cohesion */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#21251a]/85 via-[#414833]/15 to-black/30 pointer-events-none" />
+
+        {/* Top corner subtle diamond watermark */}
+        <div className="absolute top-3.5 right-3.5 z-10 opacity-80 drop-shadow-md">
+          <ImpactDiamonds className="w-5 h-4" color="#EBE3D2" />
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="relative h-48 sm:h-56 w-full bg-gradient-to-br from-[#414833] via-[#313726] to-[#21251a] overflow-hidden flex items-center justify-center p-5 sm:p-6 select-none">
       <DiamondLatticePattern variant="dark" />
@@ -205,6 +239,8 @@ export function PortfolioSection({
                     >
                       <ProjectVisualPreview
                         visualType={project.visualType}
+                        image={project.image}
+                        alt={project.title[locale]}
                         locale={locale}
                       />
                     </div>
@@ -334,6 +370,20 @@ export function PortfolioSection({
 
               {/* Modal Body */}
               <div className="p-5 sm:p-8 space-y-5 sm:space-y-6 max-h-[75vh] overflow-y-auto">
+                {project.image && (
+                  <div className="relative h-52 sm:h-72 w-full rounded-2xl overflow-hidden border border-[#CBBFA3]/70 shadow-md">
+                    <Image
+                      src={
+                        project.image.startsWith("http")
+                          ? project.image
+                          : `${BASE_PATH}${project.image}`
+                      }
+                      alt={project.title[locale]}
+                      fill
+                      className="object-cover object-center"
+                    />
+                  </div>
+                )}
                 <div>
                   <p
                     data-ar="نبذة عن المشروع"

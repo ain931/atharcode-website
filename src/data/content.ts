@@ -64,6 +64,7 @@ export interface ProjectItem {
     ar: string[];
     en: string[];
   };
+  image?: string;
   visualType: "ports" | "fashion-ar" | "ai-vision" | "car-3d" | "dressing-room" | "ecommerce";
   accentColor: string;
 }
@@ -387,6 +388,7 @@ export const PROJECTS: ProjectItem[] = [
       ar: ["محاكاة تفاعلية", "جولات افتراضية", "هولوجرام", "قباب غامرة"],
       en: ["Interactive Simulator", "Virtual Tours", "Hologram", "Immersive Dome"],
     },
+    image: "/assets/projects/mawani-ports.jpg",
     visualType: "ports",
     accentColor: "#414833",
   },
