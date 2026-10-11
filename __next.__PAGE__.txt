@@ -1,0 +1,25 @@
+2:"$Sreact.fragment"
+3:I[1304,[],"ClientPageRoot"]
+4:"static/chunks/952-f7c6b6a70a71b118.js"
+5:"static/chunks/116-11fe9f05ac0ade79.js"
+6:"static/chunks/app/page-ae4f08a833cbed41.js"
+7:I[116,["952","$4","116","$5","974","$6"],"default"]
+a:I[484,[],"OutletBoundary"]
+b:"$Sreact.suspense"
+f:"ViewportBoundary"
+10:I[484,[],"$f"]
+11:"MetadataBoundary"
+12:I[484,[],"$11"]
+13:I[6869,[],"IconMark"]
+e:X
+1:[["children",{"s":"__PAGE__","h":128,"d":{"r":["$","$2","c",{"children":[["$","$L3",null,{"Component":"$7","serverProvidedParams":{"searchParams":{},"params":{},"promises":["$@8","$@9"]}}],null,["$","$La",null,{"children":["$","$b",null,{"name":"Next.MetadataOutlet","children":"$@c"}]}]]}],"p":"$@d","v":null,"s":"$e"}}]]
+0:{"t":{"t":{"s":"","h":16,"c":"$Q1"},"h":{"r":["$","$2","h",{"children":[null,["$","$L10",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","$L12",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$b",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"أثر | Athar — تطوير برمجيات، أنظمة أودو، تجارب AR/VR، وتسويق رقمي"}],["$","meta","1",{"name":"description","content":"أثر شركة متخصصة في تطوير البرمجيات وتطبيقات الويب، تخصيص أنظمة أودو (Odoo ERP)، التجارب التفاعلية و AR/VR، وحملات التسويق الرقمي الموجهة بالبيانات في المملكة العربية السعودية."}],["$","link","2",{"rel":"author","href":"https://atharcode.com"}],["$","meta","3",{"name":"author","content":"Athar Code"}],["$","meta","4",{"name":"keywords","content":"أثر,Athar,AtharCode,شركة برمجيات السعودية,تطوير مواقع وتطبيقات ويب,أنظمة أودو,Odoo ERP السعودية,تجارب تفاعلية,AR/VR السعودية,تسويق رقمي,تطوير متاجر إلكترونية"}],["$","meta","5",{"name":"creator","content":"أثر (Athar)"}],["$","meta","6",{"name":"publisher","content":"أثر للحلول البرمجية"}],["$","meta","7",{"name":"robots","content":"index, follow"}],["$","meta","8",{"name":"googlebot","content":"index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1"}],["$","link","9",{"rel":"canonical","href":"https://atharcode.com"}],["$","link","10",{"rel":"alternate","hrefLang":"ar","href":"https://atharcode.com"}],["$","link","11",{"rel":"alternate","hrefLang":"en","href":"https://atharcode.com/en"}],["$","meta","12",{"name":"google-site-verification","content":"8PH_gDuA-L7GxvepTBQWUgKY9vbMEm3KXWwWFuCVxMY"}],["$","meta","13",{"property":"og:title","content":"أثر | Athar — حلول برمجية وتجارب رقمية متقدمة"}],["$","meta","14",{"property":"og:description","content":"أثر شركة متخصصة في تطوير البرمجيات، أنظمة أودو، تجارب AR/VR التفاعلية، والتسويق الرقمي في المملكة العربية السعودية. حوّل فكرتك إلى أثر مستدام."}],["$","meta","15",{"property":"og:url","content":"https://atharcode.com"}],["$","meta","16",{"property":"og:site_name","content":"أثر | Athar"}],["$","meta","17",{"property":"og:locale","content":"ar_SA"}],["$","meta","18",{"property":"og:image","content":"https://atharcode.com/brand/logo-official-dark.png"}],["$","meta","19",{"property":"og:image:width","content":"1200"}],["$","meta","20",{"property":"og:image:height","content":"630"}],["$","meta","21",{"property":"og:image:alt","content":"شعار شركة أثر للحلول البرمجية والتسويق الرقمي"}],["$","meta","22",{"property":"og:type","content":"website"}],["$","meta","23",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","24",{"name":"twitter:site","content":"@athar_code"}],["$","meta","25",{"name":"twitter:creator","content":"@athar_code"}],["$","meta","26",{"name":"twitter:title","content":"أثر | Athar — من الفكرة إلى الأثر"}],["$","meta","27",{"name":"twitter:description","content":"تطوير برمجيات، أنظمة أودو، تجارب AR/VR التفاعلية، وتسويق رقمي متكامل."}],["$","meta","28",{"name":"twitter:image","content":"https://atharcode.com/brand/logo-official-dark.png"}],["$","link","29",{"rel":"shortcut icon","href":"/brand/app-icon-512.png"}],["$","link","30",{"rel":"icon","href":"/brand/app-icon-512.png","sizes":"32x32","type":"image/png"}],["$","link","31",{"rel":"icon","href":"/brand/app-icon-512.png","sizes":"192x192","type":"image/png"}],["$","link","32",{"rel":"icon","href":"/brand/app-icon-512.png","sizes":"512x512","type":"image/png"}],["$","link","33",{"rel":"apple-touch-icon","href":"/brand/app-icon-512.png","sizes":"180x180","type":"image/png"}],["$","$L13","34",{}]]}]}],null]}],null]}],"p":"$@14","v":null,"s":"$e"}},"a":"$@15","u":"$@16","b":"cHOxjaIthyOWSXNiu-qY9"}
+8:{}
+9:"$1:0:1:d:r:props:children:0:props:serverProvidedParams:params"
+c:null
+16:true
+e:300
+e:C
+15:0
+14:"$undefined"
+d:"$undefined"

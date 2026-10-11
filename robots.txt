@@ -1,0 +1,6 @@
+User-Agent: *
+Allow: /
+Disallow: /api/
+
+Host: https://atharcode.com
+Sitemap: https://atharcode.com/sitemap.xml
