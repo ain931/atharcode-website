@@ -61,7 +61,7 @@ export function HeroSection({ locale, onSelectService }: HeroSectionProps) {
       id: "marketing",
       serviceId: "digital-marketing",
       icon: TrendingUp,
-      label: { ar: "التسويق الرقمي", en: "Digital Growth" },
+      label: { ar: "التسويق الرقمي", en: "Digital Marketing" },
       subtitle: {
         ar: "استراتيجيات نمو رقمي وحملات موجهة بالبيانات",
         en: "Data-driven acquisition & performance marketing",
@@ -313,26 +313,20 @@ export function HeroSection({ locale, onSelectService }: HeroSectionProps) {
                             <span className="w-2.5 h-2.5 rounded-full bg-[#28c840]" />
                             <span className="ml-2 text-[10px] text-[#A4AC86] font-mono">athar ~ main</span>
                           </div>
-                          {/* Terminal body */}
+                          {/* Terminal body — always LTR/English, terminals don't have locales */}
                           <div className="p-3 font-mono text-[10px] space-y-1 text-[#EBE3D2]/90" dir="ltr">
                             <p><span className="text-[#A4AC86]">$</span> <span className="text-[#79c0ff]">git</span> <span className="text-[#ffa657]">init</span> <span className="text-[#EBE3D2]/60">athar-platform</span></p>
-                            <p className="text-emerald-400 pl-2">
-                              ✓ {locale === "ar" ? "تهيئة المستودع بنجاح" : "Initialized empty repo"}
-                            </p>
+                            <p className="text-emerald-400 pl-2">✓ Initialized empty repo</p>
                             <p className="mt-1"><span className="text-[#A4AC86]">$</span> <span className="text-[#79c0ff]">npm</span> <span className="text-[#ffa657]">install</span></p>
                             <div className="pl-2 space-y-0.5">
-                              <p className="text-[#EBE3D2]/50">
-                                {locale === "ar" ? "تثبيت 847 حزمة..." : "added 847 packages"}
-                              </p>
-                              <p className="text-emerald-400">
-                                ✓ {locale === "ar" ? "جاهز خلال 2.1s" : "ready in 2.1s"}
-                              </p>
+                              <p className="text-[#EBE3D2]/50">added 847 packages</p>
+                              <p className="text-emerald-400">✓ ready in 2.1s</p>
                             </div>
                             <p className="mt-1"><span className="text-[#A4AC86]">$</span> <span className="text-[#79c0ff]">npm</span> <span className="text-[#ffa657]">run</span> <span className="text-[#EBE3D2]/80">build</span></p>
                             <div className="pl-2 space-y-0.5">
-                              <p className="text-[#A4AC86]">▲ Next.js 15 — {locale === "ar" ? "جارٍ التجميع…" : "Compiling…"}</p>
+                              <p className="text-[#A4AC86]">▲ Next.js 15 — Compiling…</p>
                               <p className="text-emerald-400 flex items-center gap-1">
-                                ✓ <span className="animate-pulse">{locale === "ar" ? "جاهز للنشر" : "Deploy ready"}</span>
+                                ✓ <span className="animate-pulse">Deploy ready</span>
                                 <span className="inline-block w-1 h-3 bg-emerald-400 animate-[blink_1s_step-end_infinite]" />
                               </p>
                             </div>
